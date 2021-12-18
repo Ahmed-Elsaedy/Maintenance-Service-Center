@@ -1,0 +1,23 @@
+export enum WhereFilterType {
+    None,
+    Equal,
+    NotEqual,
+    LessThan,
+    GreaterThan,
+    LessThanOrEqual,
+    GreaterThanOrEqual,
+    Contains,
+    NotContains,
+    StartsWith,
+    NotStartsWith,
+    EndsWith,
+    NotEndsWith,
+    Any,
+    NotAny,
+    IsNull,
+    IsNotNull,
+    IsEmpty,
+    IsNotEmpty,
+    IsNullOrEmpty,
+    IsNotNullOrEmpty
+}

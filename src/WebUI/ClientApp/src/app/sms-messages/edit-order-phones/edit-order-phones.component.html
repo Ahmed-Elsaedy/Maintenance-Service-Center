@@ -1,0 +1,31 @@
+<form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
+    <div [dir]="dir">
+        <h2 [style]='dir == "rtl" ? "text-align: right;": ""' mat-dialog-title>
+            {{'dialogTitles.editOrderPhones' | translate}}
+        </h2>
+        <mat-dialog-content>
+            <div class="container" fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.order.primaryPhone' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='primaryPhone'>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.order.secondaryPhone' | translate}}</mat-label>
+                        <input matInput formControlName='secondaryPhone' />
+                    </mat-form-field>
+
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button type="button" mat-raised-button mat-dialog-close>{{'dialogActions.cancel' | translate}}</button>
+            <button type="submit" mat-raised-button color='primary' [disabled]='formGroup.invalid'>
+        {{ 'dialogActions.save'  | translate}} </button>
+        </mat-dialog-actions>
+    </div>
+</form>

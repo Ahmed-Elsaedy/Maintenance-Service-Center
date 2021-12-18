@@ -1,0 +1,218 @@
+{
+  "Arabic": "اللغة العربية",
+  "English": "اللغة الانجليزية",
+  "Language": "اللغة",
+  "appTitle": "مركز خدمة الصيانة",
+  "PAGINATOR": {
+    "ITEMS_PER_PAGE": "عدد الصفوف",
+    "NEXT_PAGE": "الصفحة التالية",
+    "PREVIOUS_PAGE": "الصفحة السابقة",
+    "RANGE": "{{startIndex}} - {{endIndex}} من {{length}}"
+  },
+  "indexView": {
+    "create": "جديد",
+    "delete": "حذف",
+    "edit": "تحرير",
+    "addToStore": "اضافة لمخزن",
+    "balanceDetails": "الأرصدة",
+    "newTransaction": "اضافة إذن",
+    "transactionsDetails": "تفاصيل الأذونات",
+    "newTransfer": "تحويل",
+    "smsMessageDetails": "التفاصيل",
+    "send": "إرسال",
+    "changeOrderPhones": "تعديل الأرقام",
+    "addOrdersForSMS": "إضافة بلاغات",
+    "addNewSparepartCode": "تكويد جديد",
+    "search": "بحث...",
+    "financialStatistics": "الاحصائيات",
+    "refresh": "تحديث",
+    "export": "حفظ الكل",
+    "exportIncome": "حفظ الدخل",
+    "exportExpense": "حفظ المصروفات"
+  },
+  "models": {
+    "store": {
+      "administrator": "الموظف المسئول",
+      "description": "الوصف \\ الملاحظات",
+      "storeId": "رقم",
+      "title": "اسم المخزن",
+      "totalBalance": "اجمالي المخزون",
+      "values": {
+        "isActive": {
+          "true": "نشط",
+          "false": "غير نشط"
+        }
+      }
+    },
+    "sparepart": {
+      "sparePartId": "رقم القطعة",
+      "title": "اسم القطعة",
+      "barcode": "باركود",
+      "description": "الوصف \\ الملاحظات \\ الموديل",
+      "totalBalance": "اجمالي عدد القطع",
+      "values": {
+        "isActive": {
+          "true": "نشط",
+          "false": "غير نشط"
+        }
+      }
+    },
+    "inventory": {
+      "openingBalance": "الرصيد الافتتاحي",
+      "currentBalance": "الرصيد الحالي"
+    },
+    "inventoryTransaction": {
+      "transactionId": "رقم",
+      "created": "التاريخ",
+      "type": "نوع الحركة",
+      "amount": "القيمة",
+      "description": "التقرير",
+      "referenceType": "نوع المرجع",
+      "referenceId": "رقم المستند",
+      "storeId": "المخزن المحول له"
+    },
+    "financialTransaction": {
+      "transactionId": "رقم",
+      "created": "تاريخ التسجيل",
+      "title": "بند الحركة",
+      "date": "التاريخ",
+      "type": "نوع الحركة",
+      "amount": "المبلغ",
+      "remarks": "الملاحظات",
+      "employee": "اسم الموظف",
+      "totalIncomes": "اجمالي الدخل",
+      "totalExpenses": "اجمالي المصروفات",
+      "savings": "اجمالي قيمة المدخرات",
+      "fromDate": "الفترة من",
+      "toDate": "الفترة إلي"
+    },
+    "order": {
+      "OID": "رقم البلاغ",
+      "dateAssigned": "التاريخ",
+      "customer": "اسم العميل",
+      "region": "المنطقة",
+      "address": "العنوان",
+      "product": "المنتج",
+      "model": "الموديل",
+      "complaint": "الشكوي",
+      "report": "التقرير",
+      "street": "ملاحظات",
+      "primaryPhone": "تليفون 1",
+      "secondaryPhone": "تليفون 2",
+      "value": "الحالة",
+      "displayName": "الموظف"
+    },
+    "valuegroup": {
+      "values": {
+        "transactionType": {
+          "Addition": "اذن إضافة بضاعة",
+          "Substraction": "اذن سحب بضاعة",
+          "Transfer": "اذن تحويل بضاعة"
+        },
+        "referenceType": {
+          "Order": "بلاغ صيانة"
+        },
+        "financialTransactionType": {
+          "Income": "دخل",
+          "Expense": "مصروف"
+        }
+      }
+    },
+    "smsmessage": {
+      "id": "رقم",
+      "title": "عنوان القائمة",
+      "text": "محتوي الرسالة",
+      "created": "تاريخ الإنشاء",
+      "ordersCount": "عدد البلاغات"
+    },
+    "orderSMSMessage": {
+      "id": "رقم",
+      "orderId": "رقم البلاغ",
+      "customer": "اسم العميل",
+      "primaryPhone": "تليفون 1",
+      "secondaryPhone": "تليفون 2",
+      "lastSent": "تاريخ الإرسال",
+      "report": "التقرير",
+      "phone": "رقم الموبايل",
+      "sendCount": "العدد",
+      "values": {
+        "report": {
+          "sent": "تم الإرسال",
+          "invalid": "رقم غير صحيح",
+          "balance": "رصيد غير كافي",
+          "error": "حدث خطأ"
+        }
+      }
+    }
+  },
+  "topMenu": {
+    "inventories": "أرصدة المخازن",
+    "warehouse": "مخازن قطع الغيار",
+    "spareParts": "قائمة قطع الغيار",
+    "stores": "قائمة المخازن",
+    "transactions": "سجل حركة المخازن",
+    "financialTransactions": "الحسابات",
+    "orders": "بلاغات العملاء",
+    "logout": "تسجيل الخروج",
+    "centerOrders": "بلاغات المركز",
+    "smsmessages": "الرسائل القصيرة",
+    "dashboard": "تقارير النظام"
+  },
+  "dialogActions": {
+    "cancel": "الغاء",
+    "ok": "موافق",
+    "save": "حفظ",
+    "add": "اضافة",
+    "yes": "نعم",
+    "no": "لا",
+    "close": "إغلاق"
+  },
+  "dialogTitles": {
+    "newStore": "مخزن جديد",
+    "newSparePart": "إضافة قطعة غيار",
+    "editSparePart": "تعديل قطعة غيار",
+    "delete": "حذف",
+    "addToStore": "اضافة لمخزن",
+    "error": "حدث خطأ",
+    "newTransaction": "إضافة حركة مخزن",
+    "newFinancialTransaction": "حركة حسابات",
+    "newSmsMessage": "رسالة قصيرة جديدة",
+    "editOrderPhones": "تعديل الأرقام",
+    "addSMSMessageOrders": "إضافة بلاغات للقائمة",
+    "sendSMSMessageOrdersConfirm": "تأكيد الإرسال",
+    "financialTransactionStatistics": "احصائيات الحسابات"
+  },
+  "ServerMessages": {
+    "SparePart": {
+      "CannotDeleteSparePartHasInventory": "لا يمكن حذف قطعة الغيار حيث انها بالفعل مسجله فى بعض المخازن"
+    },
+    "Store": {
+      "CannotDeleteStoreHasInventory": "لا يمكن حذف المخزن المحدد حيث انه بالفعل يحتوي على بعض قطع الغيار"
+    },
+    "InventoryTransaction": {
+      "AmountIsGreateThanCurrentBalance": "لا يمكن اضافة الحركة لان الكمية المحددة اكبر من الرصيد المتاح"
+    },
+    "SMSMessage": {
+      "CannotDeleteSMSMessageHasOrder": "لا يمكن حذف هذه الرسالة حيث انه تم ربطها ببعض البلاغات"
+    }
+  },
+  "messages": {
+    "store": {
+      "confirmDelete": "هل انت متأكد انك تريد حذف المخزن المحدد ؟"
+    },
+    "sparepart": {
+      "confirmDelete": "هل انت متأكد انك تريد حذف قطعة الغيار المحدده ؟"
+    },
+    "smsmessage": {
+      "confirmDelete": "هل انت متأكد انك تريد حذف هذه الرسالة القصيرة ؟",
+      "reviewWrongPhoneNumbers": "برجاء مراجعة البيانات المحددة حيث انها تحتوي علي ارقام غير صحيحة"
+    },
+    "orderSMSMessage": {
+      "confirmDelete": "هل انت متأكد انك تريد حذف البلاغ من هذه القائمة ؟",
+      "sendSMSMessageOrdersConfirm": "هل انت متأكد انك تريد إرسال الرسالة الي البلاغات المحددة ؟"
+    },
+    "financialTransaction": {
+      "confirmDelete": "هل انت متأكد انك تريد حذف هذه الحركة الحسابية ؟"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* You can add global styles to this file, and also import other style files */
+
+.x_title h2 {
+    font-size: 20px;
+    font-weight: 400
+}
+
+.page-title,
+.panel_toolbox {
+    display: none;
+}
+
+
+/* .profile.clearfix{ 
+display: none;
+} */
+
+.nav.toggle {
+    display: none;
+}
+
+.sidebar-footer {
+    display: none;
+}
+
+.site_title i {
+    border: 0px solid #EAEAEA;
+}
+
+
+/* .nav.navbar-nav.navbar-right {
+min-height: 37px;
+} */
+
+
+/* .nav.navbar-nav.navbar-right li{
+display:  none;
+} */

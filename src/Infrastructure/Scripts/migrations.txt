@@ -1,0 +1,12 @@
+﻿
+
+
+dotnet ef migrations add "secondMig" --project src\Infrastructure --startup-project src\WebUI --output-dir Persistence\Migrations
+
+dotnet ef migrations remove --project src\Infrastructure --startup-project src\WebUI
+
+dotnet ef database update InitialCreate -p src\Infrastructure -s src\WebUI
+
+dotnet ef migrations add "OrderSMS_Sent_Phone" --project src\Infrastructure --startup-project src\WebUI --output-dir Persistence\Migrations
+
+dotnet ef dbcontext scaffold "Server=.;Database=gaboubcenter_db_v5_P;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models

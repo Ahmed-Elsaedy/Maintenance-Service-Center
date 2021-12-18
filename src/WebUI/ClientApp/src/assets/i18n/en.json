@@ -1,0 +1,220 @@
+{
+  "Arabic": "Arabic",
+  "English": "English",
+  "Language": "Language",
+  "appTitle": "Maintenance SERVICE CENTER",
+  "PAGINATOR": {
+    "ITEMS_PER_PAGE": "Items per page",
+    "NEXT_PAGE": "Next page",
+    "PREVIOUS_PAGE": "Previous page",
+    "RANGE": "of"
+  },
+  "indexView": {
+    "create": "Create",
+    "delete": "Delete",
+    "edit": "Edit",
+    "addToStore": "Add to store",
+    "balanceDetails": "Balance",
+    "newTransaction": "New Transaction",
+    "transactionsDetails": "Transaction Details",
+    "newTransfer": "New Transfer",
+    "smsMessageDetails": "SMS Details",
+    "send": "Send",
+    "changeOrderPhones": "Edit Phones",
+    "addOrdersForSMS": "Add Orders",
+    "search": "Search...",
+    "financialStatistics": "Statistics",
+    "refresh": "Refresh",
+    "export": "Export",
+    "exportIncome": "Export Income",
+    "exportExpense": "Export Expense",
+    "addNewSparepartCode": "Add New"
+  },
+  "models": {
+    "store": {
+      "administrator": "Administrator",
+      "description": "Description",
+      "storeId": "ID",
+      "title": "Title",
+      "totalBalance": "Total Balance",
+      "values": {
+        "isActive": {
+          "true": "Active",
+          "false": "Inactive"
+        }
+      }
+    },
+    "sparepart": {
+      "sparePartId": "ID",
+      "title": "Title",
+      "barcode": "Barcode",
+      "description": "Description",
+      "totalBalance": "Total Balance",
+      "values": {
+        "isActive": {
+          "true": "Active",
+          "false": "Inactive"
+        }
+      }
+    },
+    "inventory": {
+      "openingBalance": "Starting Balance",
+      "currentBalance": "Current Balance"
+    },
+    "inventoryTransaction": {
+      "transactionId": "Id",
+      "created": "Created",
+      "type": "Type",
+      "amount": "Amount",
+      "description": "Description",
+      "referenceType": "Reference Type",
+      "referenceId": "Reference Id",
+      "storeId": "Target Store"
+    },
+    "financialTransaction": {
+      "transactionId": "Id",
+      "created": "Created",
+      "title": "Title",
+      "date": "Date",
+      "type": "Type",
+      "amount": "Amount",
+      "remarks": "Remarks",
+      "employee": "Employee",
+      "totalIncomes": "Total Incomes",
+      "totalExpenses": "Total Expenses",
+      "savings": "Saving",
+      "fromDate": "From Date",
+      "toDate": "To Date"
+    },
+    "order": {
+      "oid": "Oid",
+      "dateAssigned": "Date",
+      "customer": "Customer",
+      "region": "Region",
+      "address": "Address",
+      "product": "Product",
+      "model": "Model",
+      "complaint": "Complaint",
+      "report": "Report",
+      "street": "Notes",
+      "primaryPhone": "Phone 1",
+      "secondaryPhone": "Phone 2",
+      "value": "Status",
+      "displayName": "Employee"
+    },
+    "valuegroup": {
+      "values": {
+        "transactionType": {
+          "Addition": "Addition",
+          "Substraction": "Substraction",
+          "Transfer": "Transfer"
+        },
+        "referenceType": {
+          "Order": "Order"
+        },
+        "financialTransactionType": {
+          "Income": "Income",
+          "Expense": "Expense"
+        }
+      }
+    },
+    "smsmessage": {
+      "id": "ID",
+      "title": "Title",
+      "text": "Text",
+      "created": "Created",
+      "ordersCount": "Orders Count"
+    },
+    "orderSMSMessage": {
+      "id": "ID",
+      "orderId": "Order ID",
+      "customer": "Customer",
+      "primaryPhone": "Phone 1",
+      "secondaryPhone": "Phone 2",
+      "sent": "Sent",
+      "report": "Report",
+      "lastSent": "Date",
+      "phone": "Phone",
+      "sendCount": "Count",
+      "values": {
+        "report": {
+          "sent": "Sent Successfully",
+          "invalid": "Invalid Number",
+          "balance": "Insufficient Balance",
+          "error": "Error Occurred"
+        }
+      }
+    }
+  },
+  "topMenu": {
+    "inventories": "Inventory",
+    "warehouse": "Warehourse",
+    "spareParts": "Spare Parts",
+    "stores": "Stores",
+    "transactions": "Transactions",
+    "financialTransactions": "Financial Transactions",
+    "orders": "Orders",
+    "logout": "Logout",
+    "centerOrders": "Center Orders",
+    "smsmessages": "SMS Messages",
+    "dashboard": "Dashboard"
+  },
+  "dialogActions": {
+    "cancel": "Cancel",
+    "ok": "OK",
+    "save": "Save",
+    "add": "Add",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close"
+  },
+  "dialogTitles": {
+    "newStore": "New Store",
+    "newSparePart": "New Sparepart",
+    "delete": "Delete",
+    "addToStore": "Add to store",
+    "error": "Error occured",
+    "newTransaction": "New Transaction",
+    "newFinancialTransaction": "New Financial Transaction",
+    "newSmsMessage": "New SMS Message",
+    "editOrderPhones": "Edit Order Phones",
+    "addSMSMessageOrders": "Add Orders",
+    "sendSMSMessageOrdersConfirm": "Send Confirmation",
+    "financialTransactionStatistics": "Statistics"
+  },
+  "ServerMessages": {
+    "ServerMessages": {
+      "SparePart": {
+        "CannotDeleteSparePartHasInventory": "Cannot delete the selected sparepart because it is included in some inventories."
+      },
+      "Store": {
+        "CannotDeleteStoreHasInventory": "Cannot delete the selected store because it is included in some inventories."
+      },
+      "InventoryTransaction": {
+        "AmountIsGreateThanCurrentBalance": "Cannot complete the transaction because the amount is greater than the current balance."
+      },
+      "SMSMessage": {
+        "CannotDeleteSMSMessageHasOrder": "Cannot delete the selected sms because is has orders."
+      }
+    },
+    "messages": {
+      "store": {
+        "confirmDelete": "Are you sure you want to the store ?"
+      },
+      "sparepart": {
+        "confirmDelete": "Are you sure you want to the sparepart ?"
+      },
+      "smsmessage": {
+        "confirmDelete": "Are you sure you want to delete SMS Message ?",
+        "reviewWrongPhoneNumbers": "Please review the selected rows because they have invalid numbers"
+      },
+      "orderSMSMessage": {
+        "confirmDelete": "Are you sure you want to remove the selected order(s) from the SMS message queue ?",
+        "sendSMSMessageOrdersConfirm": "Are you sure you want send the message to the selected orders?"
+      },
+      "financialTransaction": {
+        "confirmDelete": "Are you sure you want to this transaction?"
+      }
+    }
+  }
+}

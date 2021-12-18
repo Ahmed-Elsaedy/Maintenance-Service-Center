@@ -1,0 +1,112 @@
+<div id="overlay">
+    <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<br />
+<div class="container body">
+
+    <div class="main_container">
+
+        <!--Side Menu Placeholder-->
+        <!-- <app-side-menu [userRoles]="userRoles"></app-side-menu> -->
+
+        <!-- Top Menu Placeholder -->
+        <!-- <app-top-menu></app-top-menu> -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Plain Page</h3>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- <router-outlet name="side"></router-outlet> -->
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- side panel modal -->
+        <div class="modal right fade" id="myModal2" role="dialog" dir="ltr">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" (click)='sidePanelService.closePanel()'>
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel2">{{sidePanelTitle}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <a [routerLink]="['/layout', { outlets: { side: 'prop' } }]">Open</a>
+                        http://localhost:4200/layout/(list//side:prop) -->
+                        <!-- <router-outlet name="side" (activate)="showSidePanel()" (deactivate)="hideSidePanel()">
+                        </router-outlet> -->
+                        <router-outlet name="side" (deactivate)="hideSidePanel()">
+                        </router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /side panel modal-->
+
+        <!-- footer content -->
+        <!-- <footer>
+            <div class="pull-right">
+                Gaboub Center @2019
+            </div>
+            <div class="clearfix"></div>
+        </footer> -->
+        <!-- /footer content -->
+
+        <!-- Loading Modal -->
+        <div id='loadingModal' class="modal fade" style="z-index: 9999;">
+            <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- /Loading Modal -->
+    </div>
+
+</div>

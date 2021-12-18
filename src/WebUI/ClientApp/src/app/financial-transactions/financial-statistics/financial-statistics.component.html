@@ -1,0 +1,34 @@
+<div [dir]="dir">
+    <h2 [style]='dir == "rtl" ? "text-align: right;": ""' mat-dialog-title>
+        {{'dialogTitles.financialTransactionStatistics' | translate}}
+    </h2>
+    <mat-dialog-content>
+        <div class="container" fxLayout="column">
+
+            <div fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                    <mat-label> {{ 'models.financialTransaction.totalIncomes' | translate}}</mat-label>
+                    <input matInput autocomplete="off" readonly [value]='data.totalIncomes' />
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                    <mat-label> {{ 'models.financialTransaction.totalExpenses' | translate}}</mat-label>
+                    <input matInput autocomplete="off" readonly [value]='data.totalExpenses' />
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                    <mat-label> {{ 'models.financialTransaction.savings' | translate}}</mat-label>
+                    <input matInput autocomplete="off" readonly [value]='data.savings' />
+                </mat-form-field>
+            </div>
+
+
+
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button type="button" mat-raised-button mat-dialog-close>{{'dialogActions.close' | translate}}</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,53 @@
+<form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
+    <div [dir]="dir">
+        <h2 [style]='dir == "rtl" ? "text-align: right;": ""' mat-dialog-title>
+            {{ editMode ? ('dialogTitles.editSparePart' | translate) : ('dialogTitles.newSparePart' | translate)}}
+        </h2>
+        <mat-dialog-content>
+            <div class="container" fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.sparepart.title' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='title'>
+                    </mat-form-field>
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.sparepart.barcode' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='barcode' />
+                    </mat-form-field>
+
+
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px" *ngIf='!editMode'>
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex *ngIf='!editMode'>
+                        <mat-label> {{ 'models.store.title' | translate}}</mat-label>
+                        <mat-select formControlName='storeId'>
+                            <mat-option *ngFor="let e of stores" [value]="e.storeId">
+                                {{e.title}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.inventory.openingBalance' | translate}}</mat-label>
+                        <input matInput type='number' autocomplete="off" formControlName='openingBalance' />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.sparepart.description' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='description' />
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button type="button" mat-raised-button mat-dialog-close>{{'dialogActions.cancel' | translate}}</button>
+            <button type="submit" mat-raised-button color='primary' [disabled]='formGroup.invalid'>
+                {{ (data.SparePartId ? 'dialogActions.save' : 'dialogActions.add') | translate}} </button>
+        </mat-dialog-actions>
+    </div>
+</form>

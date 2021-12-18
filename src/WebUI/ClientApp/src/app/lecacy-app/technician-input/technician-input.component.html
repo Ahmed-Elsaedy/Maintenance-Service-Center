@@ -1,0 +1,45 @@
+<a href="/">
+    Go Home
+</a>
+<div class="container">
+    <div class="row" *ngIf='reports && reports.length > 0'>
+        <div class="col" *ngFor='let r of reports'>
+            <div class="x_panel">
+                <div class="x_title" style="border: 0px;">
+                    <h2>
+                        <a data-toggle="collapse" [href]="'#' + r.Oid">
+                            Order {{r.Oid}}
+                        </a>
+                    </h2>
+                </div>
+                <div class="collapse" [id]="r.Oid">
+                    <div class="x_content">
+                        <form class="form-horizontal">
+                            <div class="col form-group has-danger">
+                                <label>Technician</label>
+                                <input [value]="r.Date" disabled class="form-control" />
+                            </div>
+                            <div class="col form-group has-danger">
+                                <label>Technician</label>
+                                <input [value]="r.Technician" disabled class="form-control" />
+                            </div>
+                            <div class="col form-group has-danger">
+                                <label for="report">Report</label>
+                                <textarea rows="3" class="form-control" disabled>{{r.Report}}</textarea>
+                            </div>
+                        </form>
+                        <button class="btn btn-warning" (click)='onDelete(r.Oid)'>Delete</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;" *ngIf='!reports || reports.length == 0'>
+        <div class="col">
+            <p>
+                No Data
+            </p>
+        </div>
+    </div>
+</div>

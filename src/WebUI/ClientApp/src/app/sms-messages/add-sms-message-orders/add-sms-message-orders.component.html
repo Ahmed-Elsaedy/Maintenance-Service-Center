@@ -1,0 +1,31 @@
+<form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
+    <div [dir]="dir">
+        <h2 [style]='dir == "rtl" ? "text-align: right;": ""' mat-dialog-title>
+            {{'dialogTitles.addSMSMessageOrders' | translate}}
+        </h2>
+        <mat-dialog-content>
+            <div class="container" fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.orderSMSMessage.ordersIds' | translate}}</mat-label>
+                        <textarea matInput autocomplete="off" formControlName='ordersIdsString'></textarea>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+
+                    <mat-form-field [dir]="dir" fxFlex>
+                        <textarea matInput readonly formControlName="ordersIds"></textarea>
+                        <mat-hint>{{orders.length}}</mat-hint>
+                    </mat-form-field>
+
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button type="button" mat-raised-button mat-dialog-close>{{'dialogActions.cancel' | translate}}</button>
+            <button type="submit" mat-raised-button color='primary' [disabled]='orders.length == 0'>
+                {{ 'dialogActions.save'  | translate}} </button>
+        </mat-dialog-actions>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+<div class="x_panel">
+    <div class="x_title">
+        <h2>{{title}}</h2>
+        <div class="pull-right">
+            <button *ngFor='let a of actions' type="button" class="btn btn-default" (click)='onExecuteAction(a.type)' [disabled]='a.disabled'>
+                {{a.title}}
+            </button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <app-datatable (dtAjax)='dtOnAjax($event)' (dtSelectionChanged)='dtOnSelectionChanged($event)' [dtOptions]='dtOptions' [dtRedraw]='dtRedraw' (dtColumnAction)='dtOnColumnAction($event)'>
+        </app-datatable>
+    </div>
+</div>

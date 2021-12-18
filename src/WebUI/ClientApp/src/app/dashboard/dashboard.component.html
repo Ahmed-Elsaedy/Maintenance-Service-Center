@@ -1,0 +1,87 @@
+<div class="container">
+    <mat-tab-group #tabGroup mat-align-tabs="center">
+        <mat-tab label="البلاغات">
+            <br />
+            <div class="row" *ngIf='tabGroup?.selectedIndex == 0'>
+
+                <div class="col-6">
+                    <app-orders-by-category Months="-6" SetLabel="ملخص البلاغات لآخر 6 شهور" Days="0">
+                    </app-orders-by-category>
+                </div>
+                <div class="col-6">
+                    <app-orders-by-category SetLabel="ملخص البلاغات لآخر 7 أيام" Months="0" Days="-7">
+                    </app-orders-by-category>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <app-orders-over-time SetLabel="معدل البلاغات لآخر 6 شهور" IsMonths='true' Count="6">
+                    </app-orders-over-time>
+                </div>
+                <div class="col-6">
+                    <app-orders-over-time SetLabel="معدل البلاغات لآخر 7 أيام" IsMonths='false' Count="7">
+                    </app-orders-over-time>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="المخازن">
+            <br />
+            <div class="row" *ngIf='tabGroup?.selectedIndex == 1'>
+                <div class="col-3">
+                    <mat-selection-list #list (selectionChange)='storesSelectionChanged(list.selectedOptions.selected)'>
+                        <mat-list-option [value]='s.storeId' *ngFor='let s of stores'>{{s.title}}</mat-list-option>
+                    </mat-selection-list>
+                </div>
+                <div class="col-9">
+                    <div class="row" *ngIf='!isLoading'>
+                        <div class="col-12">
+                            <app-lowest-spares-by-stores [StoreIds]='selectedStore' SetLabel="اقل 5 قطع غيار">
+                            </app-lowest-spares-by-stores>
+                        </div>
+                        <hr>
+                        <div class="col-6">
+                            <app-transactions-over-time [StoreIds]='selectedStore' SetLabel="معدل الأوذنات لآخر 6 شهور" IsMonths='true' Count="6">
+                            </app-transactions-over-time>
+                        </div>
+                        <div class="col-6">
+                            <app-transactions-over-time [StoreIds]='selectedStore' SetLabel="معدل الأوذنات لآخر 7 أيام" IsMonths='false' Count="7">
+                            </app-transactions-over-time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="الرسائل القصيرة">
+            <div class="row" *ngIf='tabGroup?.selectedIndex == 2'>
+                <br />
+                <div class="col-12">
+                    <app-available-sms-balance SetLabel="الرصيد الباقة">
+                    </app-available-sms-balance>
+                </div>
+                <hr>
+                <div class="col-6">
+                    <app-orders-sms-over-time SetLabel="معدل الرسائل لآخر 6 شهور" IsMonths='true' Count="6">
+                    </app-orders-sms-over-time>
+                </div>
+                <div class="col-6">
+                    <app-orders-sms-over-time SetLabel="معدل الرسائل لآخر 7 أيام" IsMonths='false' Count="7">
+                    </app-orders-sms-over-time>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="الفنيين">
+            <div class="row" *ngIf='tabGroup?.selectedIndex == 3'>
+                <hr>
+                <div class="col-12">
+                    <app-tickets-by-employees SetLabel="أعلي الفنيين لآخر 6 شهور" Months="-6" Days='0'>
+                    </app-tickets-by-employees>
+                </div>
+
+                <div class="col-12">
+                    <app-tickets-by-employees SetLabel="أعلي الفنيين لآخر 7 أيام" Months="0" Days='-7'>
+                    </app-tickets-by-employees>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

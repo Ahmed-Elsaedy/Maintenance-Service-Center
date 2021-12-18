@@ -1,0 +1,13 @@
+<mat-toolbar color="background" *ngIf='options'>
+    <mat-toolbar-row>
+        <mat-icon style="margin: 0px 10px;"> {{ options.icon }} </mat-icon>
+        <h1> {{ (options.localize ? (options.title | translate) : options.title) + (options.subTitle || '')}} </h1>
+        <span fxFlex></span>
+        <div class="actions-toolbar">
+            <button mat-raised-button *ngFor='let action of options.actions' (click)='action.execute()' [disabled]='action.disabled'>
+                {{ options.localize ? (action.title | translate) : action.title}}
+                <mat-icon>{{action.icon}}</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

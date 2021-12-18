@@ -1,0 +1,5967 @@
+﻿{
+  "x-generator": "NSwag v13.3.0.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ElarabyCA API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/Elaraby/WorkOrders": {
+      "get": {
+        "tags": [
+          "Elaraby"
+        ],
+        "operationId": "Elaraby_WorkOrders",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Elaraby/GetWorkOrderById/{id}": {
+      "get": {
+        "tags": [
+          "Elaraby"
+        ],
+        "operationId": "Elaraby_GetWorkOrderById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Elaraby/Create": {
+      "post": {
+        "tags": [
+          "Elaraby"
+        ],
+        "operationId": "Elaraby_Create",
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderViewModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/Patch": {
+      "put": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "Order_Patch",
+        "requestBody": {
+          "x-name": "patchData",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchOrderEdit"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "Order_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/Query": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "Order_Query",
+        "requestBody": {
+          "x-name": "filter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterContainer"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/Create": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "Order_Create",
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderViewModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Order/Update": {
+      "put": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "Order_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderViewModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderTicket/Create": {
+      "post": {
+        "tags": [
+          "OrderTicket"
+        ],
+        "operationId": "OrderTicket_Create",
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderTicket"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderTicket/Update": {
+      "put": {
+        "tags": [
+          "OrderTicket"
+        ],
+        "operationId": "OrderTicket_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderTicket"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderTicket/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "OrderTicket"
+        ],
+        "operationId": "OrderTicket_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderTicket/Query": {
+      "post": {
+        "tags": [
+          "OrderTicket"
+        ],
+        "operationId": "OrderTicket_Query",
+        "requestBody": {
+          "x-name": "filter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterContainer"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee/Query": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Query",
+        "requestBody": {
+          "x-name": "filter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterContainer"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee/Create": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Create",
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee/Update": {
+      "put": {
+        "tags": [
+          "Employee"
+        ],
+        "operationId": "Employee_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "Category_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/Query": {
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "Category_Query",
+        "requestBody": {
+          "x-name": "filter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FilterContainer"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/Create": {
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "Category_Create",
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketCategory"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Category/Update": {
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "operationId": "Category_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketCategory"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataTable/Orders": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_Orders",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataTableRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataTable/Tickets": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_Tickets",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataTableRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataTable/Employees": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_Employees",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataTableRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DataTable/Categories": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_Categories",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataTableRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CurrentUser/AuthenticationModel": {
+      "get": {
+        "tags": [
+          "CurrentUser"
+        ],
+        "operationId": "CurrentUser_AuthenticationModel",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationModel"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Dashboard/OrdersByCategory": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_OrdersByCategory",
+        "parameters": [
+          {
+            "name": "Months",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Days",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdersByCategoryQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/OrdersRateOverTime": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_OrdersRateOverTime",
+        "parameters": [
+          {
+            "name": "IsMonths",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdersRateOverTimeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/LowestSparesByStoreIdsQuery": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_LowestSparesByStoreIds",
+        "parameters": [
+          {
+            "name": "StoreIds",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LowestSparesByStoreIdsQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/TransactionsRateOverTime": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_TransactionsRateOverTime",
+        "parameters": [
+          {
+            "name": "StoreIds",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "x-position": 1
+          },
+          {
+            "name": "IsMonths",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "Count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsRateOverTimeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/OrderSMSRateOverTime": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_OrderSMSRateOverTime",
+        "parameters": [
+          {
+            "name": "IsMonths",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderSMSRateOverTimeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/AvailableSmsBalance": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_AvailableSmsBalance",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AvailableSmsBalanceQuery"
+                }
+              ]
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailableSmsBalanceViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/TicketsByEmployees": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "operationId": "Dashboard_TicketsByEmployees",
+        "parameters": [
+          {
+            "name": "Months",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Days",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketsByEmployeesQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employees/Search": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "operationId": "Employees_Search",
+        "parameters": [
+          {
+            "name": "Sort",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "PageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "PageLength",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchEmployeesViewModel"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Employees": {
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "operationId": "Employees_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmployeeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Employees/{id}": {
+      "put": {
+        "tags": [
+          "Employees"
+        ],
+        "operationId": "Employees_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEmployeeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Employees"
+        ],
+        "operationId": "Employees_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/FinancialTransactions/Search": {
+      "post": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchFinancialTransactionsQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchFinancialTransactionsQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FinancialTransactions/{id}": {
+      "get": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchFinancialTransactionDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateFinancialTransactionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FinancialTransactions/Statistics": {
+      "post": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_Statistics",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialTransactionsStatisticsQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialTransactionsStatisticsQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FinancialTransactions": {
+      "post": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFinancialTransactionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FinancialTransactions/Export": {
+      "post": {
+        "tags": [
+          "FinancialTransactions"
+        ],
+        "operationId": "FinancialTransactions_Export",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportFinancialTransactionQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExportFinancialTransactionQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Inventories/Search": {
+      "post": {
+        "tags": [
+          "Inventories"
+        ],
+        "operationId": "Inventories_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchInventoriesQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchInventoriesQueryViewModel"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Inventories": {
+      "post": {
+        "tags": [
+          "Inventories"
+        ],
+        "operationId": "Inventories_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateInventoryCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Inventories/{id}": {
+      "put": {
+        "tags": [
+          "Inventories"
+        ],
+        "operationId": "Inventories_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInventoryCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Inventories"
+        ],
+        "operationId": "Inventories_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/InventoryTransactions/Search": {
+      "post": {
+        "tags": [
+          "InventoryTransactions"
+        ],
+        "operationId": "InventoryTransactions_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchITransactionsQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchITransactionsQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/InventoryTransactions": {
+      "post": {
+        "tags": [
+          "InventoryTransactions"
+        ],
+        "operationId": "InventoryTransactions_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateInventoryTransactionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/InventoryTransactions/{id}": {
+      "put": {
+        "tags": [
+          "InventoryTransactions"
+        ],
+        "operationId": "InventoryTransactions_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInventoryTransactionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "InventoryTransactions"
+        ],
+        "operationId": "InventoryTransactions_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderSMSMessages/Search": {
+      "post": {
+        "tags": [
+          "OrderSMSMessages"
+        ],
+        "operationId": "OrderSMSMessages_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchOrderSMSMessagesQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchOrderSMSMessagesQueryViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderSMSMessages/AddOrders": {
+      "post": {
+        "tags": [
+          "OrderSMSMessages"
+        ],
+        "operationId": "OrderSMSMessages_AddOrders",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddOrdersForSMSMessageCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderSMSMessages/{id}": {
+      "put": {
+        "tags": [
+          "OrderSMSMessages"
+        ],
+        "operationId": "OrderSMSMessages_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOrderPhonesCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/OrderSMSMessages": {
+      "delete": {
+        "tags": [
+          "OrderSMSMessages"
+        ],
+        "operationId": "OrderSMSMessages_Delete",
+        "requestBody": {
+          "x-name": "ids",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SMSMessages/Search": {
+      "post": {
+        "tags": [
+          "SMSMessages"
+        ],
+        "operationId": "SMSMessages_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSMSMessagesQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSMSMessagesViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SMSMessages/{id}": {
+      "get": {
+        "tags": [
+          "SMSMessages"
+        ],
+        "operationId": "SMSMessages_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMSMessageDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SMSMessages"
+        ],
+        "operationId": "SMSMessages_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSMSMessageCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "SMSMessages"
+        ],
+        "operationId": "SMSMessages_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SMSMessages/Send": {
+      "post": {
+        "tags": [
+          "SMSMessages"
+        ],
+        "operationId": "SMSMessages_Send",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSMSMessageCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchOrderSMSMessageDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SMSMessages": {
+      "post": {
+        "tags": [
+          "SMSMessages"
+        ],
+        "operationId": "SMSMessages_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSMSMessageCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpareParts/Search": {
+      "post": {
+        "tags": [
+          "SpareParts"
+        ],
+        "operationId": "SpareParts_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSparePartsQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSparePartsViewModel"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/SpareParts/{id}": {
+      "get": {
+        "tags": [
+          "SpareParts"
+        ],
+        "operationId": "SpareParts_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SparePartDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "SpareParts"
+        ],
+        "operationId": "SpareParts_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSparePartCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "SpareParts"
+        ],
+        "operationId": "SpareParts_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/SpareParts": {
+      "post": {
+        "tags": [
+          "SpareParts"
+        ],
+        "operationId": "SpareParts_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSparePartCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Stores/Search": {
+      "post": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "Stores_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchStoresQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchStoresQueryViewModel"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Stores/{id}": {
+      "get": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "Stores_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchStoreDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "Stores_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStoreCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "Stores_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Stores": {
+      "post": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "Stores_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStoreCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoItems": {
+      "post": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "TodoItems_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoItemCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoItems/{id}": {
+      "put": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "TodoItems_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTodoItemCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "TodoItems_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoItems/UpdateItemDetails": {
+      "put": {
+        "tags": [
+          "TodoItems"
+        ],
+        "operationId": "TodoItems_UpdateItemDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTodoItemDetailCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoLists": {
+      "get": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "TodoLists_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodosVm"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "TodoLists_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoListCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/TodoLists/{id}": {
+      "get": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "TodoLists_Get2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "TodoLists_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTodoListCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "TodoLists"
+        ],
+        "operationId": "TodoLists_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/ValueGroups/GetTransactionTypes": {
+      "get": {
+        "tags": [
+          "ValueGroups"
+        ],
+        "operationId": "ValueGroups_GetTransactionTypes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValueGroupDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ValueGroups/GetReferenceTypes": {
+      "get": {
+        "tags": [
+          "ValueGroups"
+        ],
+        "operationId": "ValueGroups_GetReferenceTypes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValueGroupDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ValueGroups/GetFinancialTransactionTypes": {
+      "get": {
+        "tags": [
+          "ValueGroups"
+        ],
+        "operationId": "ValueGroups_GetFinancialTransactionTypes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValueGroupDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ValueGroups/{id}": {
+      "get": {
+        "tags": [
+          "ValueGroups"
+        ],
+        "operationId": "ValueGroups_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValueGroupDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "WeatherForecast_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateOrderViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "complaint": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateAssigned": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderid": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "product": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "activeTicket": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "workOrderId": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          },
+          "sapNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchOrderEdit": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orders": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "tickets": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "orderFields": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "ticketFields": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "templateOrder": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Order"
+              }
+            ]
+          },
+          "templateTicket": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrderTicket"
+              }
+            ]
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderid": {
+            "type": "string",
+            "nullable": true
+          },
+          "customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "town": {
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "product": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "complaint": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateAssigned": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "interfaceStatus": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dateLastDelayed": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "reasonLastDelayed": {
+            "type": "string",
+            "nullable": true
+          },
+          "isSynchronized": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "optimisticLockField": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gcrecord": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "reportsOverview": {
+            "type": "string",
+            "nullable": true
+          },
+          "isArchived": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isArgent": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "activeTicket": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "overviewNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "tag": {
+            "type": "string",
+            "nullable": true
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "siteIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "rowBytesCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "workOrderId": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "sapnumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "activeTicketNavigation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrderTicket"
+              }
+            ]
+          },
+          "orderTicket": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OrderTicket"
+            }
+          },
+          "orderSMSMessages": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OrderSMSMessage"
+            }
+          }
+        }
+      },
+      "OrderTicket": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "report": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "employee": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "category": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "optimisticLockField": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gcrecord": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "causeUnCompletion": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "includeInOrderNotes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "categoryNavigation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TicketCategory"
+              }
+            ]
+          },
+          "employeeNavigation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Employee"
+              }
+            ]
+          },
+          "order1": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Order"
+              }
+            ]
+          },
+          "orderNavigation": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Order"
+            }
+          }
+        }
+      },
+      "TicketCategory": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "backColor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fontColor": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fontStyle": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "supportApplyInBatches": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "allowDuplicates": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "optimisticLockField": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gcrecord": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "reportable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "activatable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "includeInOrderNotes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "orderTicket": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OrderTicket"
+            }
+          }
+        }
+      },
+      "Employee": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "town": {
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "identityNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateEnrolled": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "changePasswordOnFirstLogon": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "storedPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "optimisticLockField": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gcrecord": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "objectType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isTechnician": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "stores": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Store"
+            }
+          },
+          "financialTransactions": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/FinancialTransaction"
+            }
+          },
+          "orderTicket": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OrderTicket"
+            }
+          }
+        }
+      },
+      "Store": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "storeId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "administrator": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "administratorNavigation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Employee"
+                  }
+                ]
+              },
+              "inventories": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Inventory"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Inventory": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "inventoryId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "storeId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "sparePartId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "openingBalance": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "currentBalance": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "sparePart": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SparePart"
+                  }
+                ]
+              },
+              "store": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Store"
+                  }
+                ]
+              },
+              "inventoryTransactions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/InventoryTransaction"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SparePart": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "sparePartId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "barcode": {
+                "type": "string",
+                "nullable": true
+              },
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "category": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "categoryNavigation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ValueGroup"
+                  }
+                ]
+              },
+              "inventories": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Inventory"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ValueGroup": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "valueGroupId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "value": {
+                "type": "string",
+                "nullable": true
+              },
+              "group": {
+                "type": "string",
+                "nullable": true
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "inventoryTransactionTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/InventoryTransaction"
+                }
+              },
+              "financialTransactionTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/FinancialTransaction"
+                }
+              },
+              "sparePartCategories": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SparePart"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "InventoryTransaction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transactionId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "inventoryId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "type": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "amount": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "referenceType": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "referenceId": {
+                "type": "string",
+                "nullable": true
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "inventory": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Inventory"
+                  }
+                ]
+              },
+              "typeNavigation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ValueGroup"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "AuditableEntity": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastModifiedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "FinancialTransaction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transactionId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "type": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "amount": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "typeNavigation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ValueGroup"
+                  }
+                ]
+              },
+              "remarks": {
+                "type": "string",
+                "nullable": true
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "employeeId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "employeeNavigation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Employee"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "OrderSMSMessage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "orderId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "order": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                ]
+              },
+              "smsMessageId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "smsMessage": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SMSMessage"
+                  }
+                ]
+              },
+              "lastSent": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "sendCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "report": {
+                "type": "string",
+                "nullable": true
+              },
+              "phone": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SMSMessage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AuditableEntity"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "text": {
+                "type": "string",
+                "nullable": true
+              },
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "orderSMSMessages": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/OrderSMSMessage"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "FilterContainer": {
+        "type": "object",
+        "description": "Container for filters.",
+        "additionalProperties": false,
+        "properties": {
+          "where": {
+            "description": "Where filters.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TreeFilter"
+              }
+            ]
+          },
+          "orderBy": {
+            "type": "array",
+            "description": "Order filters.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OrderFilter"
+            }
+          },
+          "skip": {
+            "type": "integer",
+            "description": "Skip number of elements.",
+            "format": "int32"
+          },
+          "take": {
+            "type": "integer",
+            "description": "Take number of elements.",
+            "format": "int32"
+          },
+          "select": {
+            "type": "string",
+            "nullable": true
+          },
+          "includes": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TreeFilter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WhereFilter"
+          },
+          {
+            "type": "object",
+            "description": "Filters with infinite nesting and boolean operations therebetween.",
+            "additionalProperties": false,
+            "properties": {
+              "operatorType": {
+                "description": "Type of logical operator.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TreeFilterType"
+                  }
+                ]
+              },
+              "operands": {
+                "type": "array",
+                "description": "Operands of boolean expressions.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/TreeFilter"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TreeFilterType": {
+        "type": "integer",
+        "description": "Type of operation.",
+        "x-enumNames": [
+          "None",
+          "And",
+          "Or"
+        ],
+        "enum": [
+          0,
+          1,
+          2
+        ]
+      },
+      "WhereFilter": {
+        "type": "object",
+        "description": "Tree filter for queryable expression.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Filter field name.",
+            "nullable": true
+          },
+          "filterType": {
+            "description": "Type of field filtration.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WhereFilterType"
+              }
+            ]
+          },
+          "value": {
+            "description": "Value for filtering.",
+            "nullable": true
+          }
+        }
+      },
+      "WhereFilterType": {
+        "type": "integer",
+        "description": "Type of elements comparison.",
+        "x-enumNames": [
+          "None",
+          "Equal",
+          "NotEqual",
+          "LessThan",
+          "GreaterThan",
+          "LessThanOrEqual",
+          "GreaterThanOrEqual",
+          "Contains",
+          "NotContains",
+          "StartsWith",
+          "NotStartsWith",
+          "EndsWith",
+          "NotEndsWith",
+          "Any",
+          "NotAny",
+          "IsNull",
+          "IsNotNull",
+          "IsEmpty",
+          "IsNotEmpty",
+          "IsNullOrEmpty",
+          "IsNotNullOrEmpty"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      "OrderFilter": {
+        "type": "object",
+        "description": "Sort by the field.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "Sort field name.",
+            "nullable": true
+          },
+          "order": {
+            "description": "Sorting order.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OrderFilterType"
+              }
+            ]
+          }
+        }
+      },
+      "OrderFilterType": {
+        "type": "integer",
+        "description": "Sorting order.",
+        "x-enumNames": [
+          "Asc",
+          "Desc"
+        ],
+        "enum": [
+          0,
+          1
+        ]
+      },
+      "DataTableRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "search": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DataTableSearch"
+              }
+            ]
+          },
+          "columns": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/DataTableColumn"
+            }
+          },
+          "order": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/DataTableOrder"
+            }
+          },
+          "additionalParameters": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {}
+          }
+        }
+      },
+      "DataTableSearch": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "regex": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DataTableColumn": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "searchable": {
+            "type": "boolean"
+          },
+          "search": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DataTableSearch"
+              }
+            ]
+          },
+          "orderable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "DataTableOrder": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "column": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dir": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AuthenticationModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "OrdersByCategoryQueryViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "OrdersRateOverTimeViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "LowestSparesByStoreIdsQueryViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "TransactionsRateOverTimeViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "OrderSMSRateOverTimeViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "AvailableSmsBalanceViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "AvailableSmsBalanceQuery": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "TicketsByEmployeesQueryViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "SearchEmployeesViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfEmployeeDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfEmployeeDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/EmployeeDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "EmployeeDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "oid": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateEmployeeCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "administrator": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UpdateEmployeeCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "administrator": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SearchFinancialTransactionsQueryViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchFinancialTransactionDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fromDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "toDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchFinancialTransactionDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchFinancialTransactionDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchFinancialTransactionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "employeeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "typeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "SearchFinancialTransactionsQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fromDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "toDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SearchQuery": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "sort": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageLength": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "filter": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "FinancialTransactionsStatisticsQueryViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "totalIncomes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalExpenses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "savings": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "FinancialTransactionsStatisticsQuery": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "CreateFinancialTransactionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateFinancialTransactionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ExportFinancialTransactionQueryViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchFinancialTransactionDto"
+            }
+          }
+        }
+      },
+      "ExportFinancialTransactionQuery": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "withdrawal": {
+            "type": "boolean"
+          },
+          "deposit": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SearchInventoriesQueryViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchInventoryDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchInventoryDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchInventoryDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchInventoryDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inventoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "storeTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "sparePartBarcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "spareItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sparePartTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "openingBalance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentBalance": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchInventoriesQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "storeId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "sparePartId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateInventoryCommand": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UpdateInventoryCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchITransactionsQueryViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchITransactionDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchITransactionDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchITransactionDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchITransactionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "inventoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "storeTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "storeAdministrator": {
+            "type": "string",
+            "nullable": true
+          },
+          "sparePartTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "sparePartBarcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "typeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "referenceType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "referenceTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchITransactionsQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "inventoryId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CreateInventoryTransactionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inventoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "referenceType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "referenceId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateInventoryTransactionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchOrderSMSMessagesQueryViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchOrderSMSMessageDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchOrderSMSMessageDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchOrderSMSMessageDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchOrderSMSMessageDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "smsMessageId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastSent": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "sendCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "report": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchOrderSMSMessagesQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "orderId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "smsMessageId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AddOrdersForSMSMessageCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "smsMessageId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordersIds": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateOrderPhonesCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "primaryPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryPhone": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchSMSMessagesViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchSMSMessageDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchSMSMessageDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchSMSMessageDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchSMSMessageDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordersCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "SearchSMSMessagesQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SMSMessageDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SendSMSMessageCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderSMSMessageId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "useSecondary": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CreateSMSMessageCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateSMSMessageCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchSparePartsViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchSparePartDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchSparePartDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchSparePartDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchSparePartDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sparePartId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "category": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalBalance": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchSparePartsQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SparePartDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sparePartId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateSparePartCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "storeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "openingBalance": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UpdateSparePartCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sparePartId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchStoresQueryViewModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQueryViewModelOfSearchStoreDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchQueryViewModelOfSearchStoreDto": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchStoreDto"
+            }
+          },
+          "totalRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchStoreDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "storeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "administrator": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmployeeDto"
+              }
+            ]
+          },
+          "totalBalance": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchStoresQuery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchQuery"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CreateStoreCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "administrator": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UpdateStoreCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "storeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "administrator": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CreateTodoItemCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateTodoItemCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "done": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UpdateTodoItemDetailCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/PriorityLevel"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PriorityLevel": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "None",
+          "Low",
+          "Medium",
+          "High"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "TodosVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "priorityLevels": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PriorityLevelDto"
+            }
+          },
+          "lists": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TodoListDto"
+            }
+          }
+        }
+      },
+      "PriorityLevelDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TodoListDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TodoItemDto"
+            }
+          }
+        }
+      },
+      "TodoItemDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "done": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateTodoListCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateTodoListCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ValueGroupDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "valueGroupId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "group": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}

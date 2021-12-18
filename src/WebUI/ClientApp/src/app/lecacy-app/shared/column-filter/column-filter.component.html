@@ -1,0 +1,27 @@
+<div id="columnAction" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form [formGroup]='null'>
+                    <div class="col form-group">
+                        <label>Column:</label>
+                        <input type="text" class="form-control" formControlName='column' readonly>
+                    </div>
+
+                    <div class="col form-group">
+                        <label>Operator:</label>
+                        <select class="form-control" data-width="100%" formControlName="operator">
+                          <option>Contains</option>
+                          <option>Is Not Empty</option>
+                          <option>(Lookup...)</option>
+                      </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" type="button">Filter</button>
+            </div>
+        </div>
+    </div>
+</div>

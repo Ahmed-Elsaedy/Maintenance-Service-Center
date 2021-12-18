@@ -1,0 +1,43 @@
+<form class="form-horizontal" [formGroup]='formGroup' (ngSubmit)="onSubmit()">
+
+    <div class="col form-group has-danger">
+        <label for="oid">OID:</label>
+        <input type="text" id="oid" class="form-control" autocomplete="off" formControlName="oid">
+    </div>
+
+    <div class="col form-group">
+        <label for="customer">Client Name:</label>
+        <input type="text" id="customer" class="form-control" autocomplete="off" formControlName="customer">
+    </div>
+
+    <div class="col form-group">
+        <label for="phones">Phones:</label>
+        <input type="number" id="phones" class="form-control" autocomplete="off" formControlName="phones">
+    </div>
+
+    <div class="col form-group">
+        <label for="region" class="text-danger">Region:</label>
+        <select id="region" class="form-control" data-tags="true" data-width="100%" multiple>
+        </select>
+    </div>
+
+    <div class="col form-group">
+        <label for="note" class="text-danger">Notes:</label>
+        <select id="note" class="form-control" data-tags="true" data-width="100%" multiple>
+        </select>
+    </div>
+
+    <div class="col form-group">
+        <label for="ticket" class="text-danger">Active Ticket:</label>
+        <select id="ticket" class="form-control" data-tags="true" data-width="100%" multiple>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Filter" />
+            <input type="button" class="btn btn-default" value="Clear" (click)='onClear()' />
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,83 @@
+<form class="form-horizontal" [formGroup]='formGroup' (ngSubmit)="onSubmit()">
+
+    <div class="col form-group has-danger">
+        <label for="orderid">Case Number:</label>
+        <input type="text" id="orderid" class="form-control" autocomplete="off" formControlName="orderid">
+    </div>
+
+    <div class="col form-group">
+        <label for="dateAssigned">Date Created:</label>
+        <input type="text" id="dateAssigned" class="form-control" autocomplete="off" formControlName="dateAssigned" [value]="formGroup.get('dateAssigned').value | date: 'medium'" readonly>
+    </div>
+
+    <div class="col form-group">
+        <label for="customer">Client Name:</label>
+        <input type="text" id="customer" class="form-control" autocomplete="off" formControlName="customer">
+    </div>
+
+    <div class="col form-group">
+        <label for="primaryPhone">Primary Phone:</label>
+        <input id="primaryPhone" class="form-control" autocomplete="off" formControlName="primaryPhone">
+    </div>
+
+    <div class="col form-group">
+        <label for="secondaryPhone">Secondary Phone:</label>
+        <input id="secondaryPhone" class="form-control" autocomplete="off" formControlName="secondaryPhone">
+    </div>
+
+    <div class="col form-group">
+        <label for="region" class="text-danger">Region:</label>
+        <select id="region" class="form-control" data-tags="true" data-width="100%">
+            <option></option>
+            <option>البحيرة - رشيد</option>
+            <option>البحيرة - ادكو</option>
+            <option>كفر الشيخ - مطوبس</option>
+        </select>
+    </div>
+
+    <div class="col form-group">
+        <label for="product">Product:</label>
+        <select id="product" class="form-control" data-tags="true" data-width="100%">
+            <option></option>
+            <option>ثلاجة</option>
+            <option>غسالة</option>
+            <option>سخان</option>
+            <option>مروحة</option>
+            <option>مكنسة</option>
+            <option>ديب فريزر</option>
+            <option>شفاط</option>
+            <option>ميكرويف</option>
+            <option>فرن كهربائى</option>
+            <option>غسالة اطباق</option>
+            <option>مجفف ملابس</option>
+            <option>شفاط البوتجاز</option>
+        </select>
+    </div>
+
+    <div class="col form-group">
+        <label for="model">Model:</label>
+        <input type="text" id="model" class="form-control" formControlName="model" autocomplete="off">
+    </div>
+
+    <div class="col form-group">
+        <label for="notes">Notes:</label>
+        <input type="text" id="street" class="form-control" formControlName="street" autocomplete="off">
+    </div>
+
+    <div class="col form-group">
+        <label for="address">ِAddress:</label>
+        <textarea class="resizable_textarea form-control" formControlName="address"></textarea>
+    </div>
+
+    <div class="col form-group">
+        <label for="complaint">Complaint:</label>
+        <textarea class="resizable_textarea form-control" id="complaint" formControlName="complaint"></textarea>
+    </div>
+
+    <div class="form-group">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Submit" />
+        </div>
+    </div>
+
+</form>

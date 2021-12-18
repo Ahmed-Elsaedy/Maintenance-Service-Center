@@ -1,0 +1,7 @@
+.options-tr th {
+    text-align: center;
+}
+
+#datatable_wrapper .row {
+    width: 100%!important;
+}

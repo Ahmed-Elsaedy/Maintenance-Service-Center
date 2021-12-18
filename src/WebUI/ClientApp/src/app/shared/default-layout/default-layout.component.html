@@ -1,0 +1,123 @@
+<body>
+    <!-- <mat-sidenav-container>
+        <mat-sidenav [fixedInViewport]='true'>
+        </mat-sidenav>
+        <mat-sidenav-content>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container> -->
+
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <!-- <button mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button> -->
+            <a [routerLink]='["/home"]' style="color:white;">
+                <h1> {{'appTitle' | translate}} </h1>
+            </a>
+
+            <!-- <a mat-button [matMenuTriggerFor]="inventoryMenu">
+                {{ 'topMenu.warehouse' | translate }} </a>
+            <mat-menu #inventoryMenu>
+                <button mat-menu-item [routerLink]="['/','spareparts']">
+                    {{ 'topMenu.spareParts' | translate }}
+                    <mat-icon>description</mat-icon>
+                </button>
+                <button mat-menu-item [routerLink]="['/','inventories']">
+                    {{ 'topMenu.inventories' | translate }}
+                    <mat-icon>equalizer</mat-icon>
+                </button>
+                <button mat-menu-item [routerLink]="['/','transactions']">
+                    {{ 'topMenu.transactions' | translate}}
+                    <mat-icon>history</mat-icon>
+                </button>
+                <button mat-menu-item [routerLink]="['/','stores']">
+                    {{ 'topMenu.stores' | translate}}
+                    <mat-icon>account_balance</mat-icon>
+                </button>
+            </mat-menu> -->
+
+
+            <!-- <a mat-button [routerLink]="['/','employees', 'list']">
+                Employees
+                <mat-icon>textsms</mat-icon>
+            </a> -->
+
+            <!-- <a mat-button [routerLink]="['spareparts']">{{ 'topMenu.spareParts' | translate }}</a>
+        <a mat-button [routerLink]="['inventories']">{{ 'topMenu.inventories' | translate }}</a>
+        <a mat-button [routerLink]="['transactions']">{{ 'topMenu.transactions' | translate}}</a>
+        <a mat-button [routerLink]="['stores']">{{ 'topMenu.stores' | translate}}</a> -->
+
+
+            <a mat-button [routerLink]="['/','dashboard']" *ngIf='MENU_DASHBOARD'>
+                {{ 'topMenu.dashboard' | translate }}
+                <mat-icon> bar_chart</mat-icon>
+            </a>
+            <a mat-button [routerLink]="['/','spareparts']" *ngIf='MENU_WAREHOUSE'>
+                {{ 'topMenu.spareParts' | translate }}
+                <mat-icon>description</mat-icon>
+            </a>
+            <a mat-button [routerLink]="['/','stores']" *ngIf='MENU_WAREHOUSE'>
+                {{ 'topMenu.stores' | translate}}
+                <mat-icon>account_balance</mat-icon>
+            </a>
+            <!-- <a mat-button [routerLink]="['/','inventories']">
+    {{ 'topMenu.inventories' | translate }}
+    <mat-icon>equalizer</mat-icon>
+</a> -->
+            <a mat-button [routerLink]="['/','transactions']" *ngIf='MENU_WAREHOUSE'>
+                {{ 'topMenu.transactions' | translate}}
+                <mat-icon>history</mat-icon>
+            </a>
+
+            <!-- <a mat-button [matMenuTriggerFor]="ordersMenu">
+    {{ 'topMenu.orders' | translate }} </a>
+<mat-menu #ordersMenu>
+    <button mat-menu-item [routerLink]="['/','orders', 'list']">
+        {{ 'topMenu.centerOrders' | translate }}
+        <mat-icon>description</mat-icon>
+    </button>
+</mat-menu> -->
+
+            <a mat-button [routerLink]="['/','orders', 'list']" *ngIf='MENU_ORDERS'>
+                {{ 'topMenu.centerOrders' | translate }}
+                <mat-icon>filter_none</mat-icon>
+            </a>
+
+            <a mat-button [routerLink]="['/','sms']" *ngIf='MENU_SMS'>
+                {{ 'topMenu.smsmessages' | translate }}
+                <mat-icon>textsms</mat-icon>
+            </a>
+
+            <a mat-button [routerLink]="['/','financial']" *ngIf='MENU_FINANCIAL'>
+                {{ 'topMenu.financialTransactions' | translate }}
+                <mat-icon>money</mat-icon>
+            </a>
+
+            <span class="toolbar-spacer"></span>
+
+            <a mat-button [matMenuTriggerFor]="profileMenu">
+                {{ userName | async }}
+                <mat-icon>person</mat-icon>
+                <!-- <img class='profile-image'
+                src="https://scontent.fcai17-1.fna.fbcdn.net/v/t31.0-1/p100x100/29983123_10211941527992844_3448304295640791068_o.jpg?_nc_cat=106&_nc_sid=dbb9e7&_nc_ohc=KES2OkpoV0oAX9WuN8l&_nc_ht=scontent.fcai17-1.fna&_nc_tp=6&oh=3d6b782a0980f4d8806ad9e45115a4bc&oe=5F14FFFA" /> -->
+            </a>
+            <mat-menu #profileMenu>
+                <button mat-menu-item [routerLink]='["/authentication/logout"]' [state]='{ local: true }'>{{
+                    'topMenu.logout' | translate }}</button>
+            </mat-menu>
+
+
+            <a mat-button [matMenuTriggerFor]="languageMenu">
+                <!-- {{'Language' | translate}} -->
+                <mat-icon>settings</mat-icon>
+            </a>
+
+            <mat-menu #languageMenu="matMenu">
+                <button (click)="useLanguage('en')" mat-menu-item>{{'English'}}</button>
+                <button (click)="useLanguage('ar')" mat-menu-item>{{'Arabic' | translate}}</button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</body>

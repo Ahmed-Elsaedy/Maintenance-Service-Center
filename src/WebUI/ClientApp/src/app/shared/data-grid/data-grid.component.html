@@ -1,0 +1,52 @@
+<br />
+<div fxLayout *ngIf='options.enableSearch'>
+    <mat-form-field fxFlex appearance="outline" [dir]="dir">
+        <mat-label>{{"indexView.search" | translate }}</mat-label>
+        <input matInput style="text-align: center;" autocomplete="off" type="text" #search (keyup.enter)="onSearch()">
+        <button mat-button *ngIf="search.value" matSuffix mat-icon-button (click)="onClear()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+<mat-table *ngIf='options' [style.width]='options.width || "100%"' matSort class="mat-elevation-z8" [dataSource]="options.dataSource">
+
+    <ng-container matColumnDef="Select">
+        <mat-header-cell fxFlex="50px" *matHeaderCellDef>
+            <mat-checkbox *ngIf='options.selectionModel.isMultipleSelection()' color="primary" (change)="$event ? masterToggle() : null" [checked]="options.selectionModel.hasValue() && isAllSelected()" [indeterminate]="options.selectionModel.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell fxFlex="50px" *matCellDef="let row">
+            <mat-checkbox color="primary" (click)="$event.stopPropagation()" (change)="$event ? options.selectionModel.toggle(row) : null" [checked]="options.selectionModel.isSelected(row)">
+            </mat-checkbox>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container [matColumnDef]="col.name" *ngFor='let col of options.columns'>
+        <mat-header-cell [fxFlex]="col.width || ''" [disabled]='!col.sortable' *matHeaderCellDef mat-sort-header>
+            {{ options.localize ? (col.title | translate) : col.title }}
+        </mat-header-cell>
+        <mat-cell [fxFlex]="col.width || ''" *matCellDef="let element">
+            {{ col.mapper? col.mapper(element) : element[col.name] }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Options">
+        <mat-header-cell [fxFlex]='options.optionsColumnWidth' *matHeaderCellDef>
+
+        </mat-header-cell>
+        <mat-cell [fxFlex]='options.optionsColumnWidth' *matCellDef="let row">
+            <button mat-icon-button [title]="options.localize ? (o.title | translate) : o.title" *ngFor='let o of options.options' (click)='o.execute(row)'>
+                <mat-icon>{{o.icon}}</mat-icon> 
+            </button>
+        </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)='onRowClick(row)' [ngClass]="{ 'selected': options.selectionModel.isSelected(row)}">
+    </mat-row>
+
+</mat-table>
+
+<mat-paginator [style.width]='options.width || "100%"' showFirstLastButtons [length]='options.dataSource.totalRecords' [pageSizeOptions]="[10, 20, 50, 100]">
+</mat-paginator>

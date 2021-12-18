@@ -1,0 +1,92 @@
+<form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
+    <div [dir]="dir">
+        <h2 [style]='dir == "rtl" ? "text-align: right;": ""' mat-dialog-title>
+            {{'dialogTitles.newTransaction' | translate}}
+        </h2>
+        <mat-dialog-content>
+            <div class="container" fxLayout="column">
+
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.store.title' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='storeTitle' />
+                    </mat-form-field>
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.sparepart.title' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='sparePartTitle' />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" [fxFlex]='type.value == 3 ? "33%" : "50%"'>
+                        <mat-label> {{ 'models.inventoryTransaction.type' | translate}}</mat-label>
+                        <mat-select formControlName='type' #type required>
+                            <mat-option [value]="null"></mat-option>
+                            <mat-option *ngFor='let t of transactionTypes' [value]="t.valueGroupId">
+                                {{('models.valuegroup.values.transactionType.' + t.value) | translate}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field [dir]="dir" appearance="outline" *ngIf='type.value == 3' [fxFlex]='type.value == 3 ? "33%" : "50%"'>
+                        <mat-label> {{ 'models.store.title' | translate}}</mat-label>
+                        <mat-select formControlName='storeId'>
+                            <mat-option *ngFor="let e of stores" [value]="e.storeId">
+                                {{e.title}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <mat-form-field [dir]="dir" appearance="outline" [fxFlex]='type.value == 3 ? "30%" : "50%"'>
+                        <mat-label> {{ 'models.inventoryTransaction.amount' | translate}}</mat-label>
+                        <input matInput type="number" autocomplete="off" formControlName='amount' />
+                    </mat-form-field>
+
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex *ngIf='formGroup.controls.type.value == 5'>
+                        <mat-label> {{ 'models.inventoryTransaction.storeId' | translate}}</mat-label>
+                        <mat-select formControlName='storeId'>
+                            <mat-option [value]="null"></mat-option>
+                            <mat-option *ngFor='let s of stores' [value]="s.storeId">
+                                {{s.title}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.inventoryTransaction.description' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='description' />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.inventoryTransaction.referenceType' | translate}}</mat-label>
+                        <mat-select formControlName='referenceType'>
+                            <mat-option [value]="null"></mat-option>
+                            <mat-option *ngFor='let t of referenceTypes' [value]="t.valueGroupId">
+                                {{('models.valuegroup.values.referenceType.' + t.value) | translate}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field [dir]="dir" appearance="outline" fxFlex>
+                        <mat-label> {{ 'models.inventoryTransaction.referenceId' | translate}}</mat-label>
+                        <input matInput autocomplete="off" formControlName='referenceId' />
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button type="button" mat-raised-button mat-dialog-close>{{'dialogActions.cancel' | translate}}</button>
+            <button type="submit" mat-raised-button color='primary' [disabled]='formGroup.invalid'>
+                {{ (data.SparePartId ? 'dialogActions.save' : 'dialogActions.add') | translate}} </button>
+        </mat-dialog-actions>
+    </div>
+</form>

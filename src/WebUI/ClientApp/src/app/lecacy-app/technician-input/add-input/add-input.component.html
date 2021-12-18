@@ -1,0 +1,34 @@
+<div class="container" *ngIf='currentOrder'>
+    <div class="row">
+        <div class="col">
+            <div class="x_panel">
+                <div class="x_title" style="border: 0px;">
+                    <h2>
+                        Order {{currentOrder.Oid}}
+                    </h2>
+                </div>
+                <div class="x_content">
+                    <form class="form-horizontal" #formObj='ngForm' (ngSubmit)='onSubmit(formObj)'>
+                        <div class="col form-group has-danger">
+                            <label>Client</label>
+                            <input [value]="currentOrder.Customer" disabled class="form-control" />
+                        </div>
+                        <div class="col form-group has-danger">
+                            <label>Technician</label>
+                            <input [value]="userName" disabled class="form-control" />
+                        </div>
+                        <div class="col form-group has-danger">
+                            <label for="report">Report</label>
+                            <textarea rows="3" class="form-control" name='report' [ngModel]='currentReport.Report' required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="col">
+                                <input type="submit" class="btn btn-success" value="Send" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

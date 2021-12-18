@@ -1,0 +1,14 @@
+<form class="form-horizontal" [formGroup]='formGroup' (ngSubmit)="onSubmit()">
+
+    <div class="col form-group has-danger">
+        <label for="title">Title:</label>
+        <input type="text" id="title" class="form-control" autocomplete="off" formControlName="title">
+    </div>
+
+    <div class="form-group">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Submit" />
+        </div>
+    </div>
+
+</form>
