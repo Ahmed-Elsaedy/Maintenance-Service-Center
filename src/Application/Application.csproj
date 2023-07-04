@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ElarabyCore2\QueryDesignerCore\QueryDesignerCore.csproj" />
+    <ProjectReference Include="..\..\..\QueryDesigner\src\QueryDesignerCore\QueryDesignerCore.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 

@@ -1,0 +1,5 @@
+openssl req -newkey rsa:2048 -nodes -keyout ./gaboub/privateKey.key -out ./gaboub/csr.csr
+
+openssl x509 -req -days 365 -in ./gaboub/csr.csr -signkey ./gaboub/privateKey.key -out ./gaboub/certificate.crt
+
+openssl pkcs12 -export -out ./gaboub/certificate.pfx -inkey ./gaboub/privateKey.key -in ./gaboub/certificate.crt

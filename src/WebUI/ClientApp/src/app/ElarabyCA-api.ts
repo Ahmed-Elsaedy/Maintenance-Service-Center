@@ -6137,8 +6137,8 @@ export class FilterContainer implements IFilterContainer {
     skip?: number;
     /** Take number of elements. */
     take?: number;
-    select?: string | undefined;
     includes?: string | undefined;
+    select?: string | undefined;
 
     constructor(data?: IFilterContainer) {
         if (data) {
@@ -6159,8 +6159,8 @@ export class FilterContainer implements IFilterContainer {
             }
             this.skip = _data["skip"];
             this.take = _data["take"];
-            this.select = _data["select"];
             this.includes = _data["includes"];
+            this.select = _data["select"];
         }
     }
 
@@ -6181,8 +6181,8 @@ export class FilterContainer implements IFilterContainer {
         }
         data["skip"] = this.skip;
         data["take"] = this.take;
-        data["select"] = this.select;
         data["includes"] = this.includes;
+        data["select"] = this.select;
         return data; 
     }
 }
@@ -6197,8 +6197,8 @@ export interface IFilterContainer {
     skip?: number;
     /** Take number of elements. */
     take?: number;
-    select?: string | undefined;
     includes?: string | undefined;
+    select?: string | undefined;
 }
 
 /** Tree filter for queryable expression. */

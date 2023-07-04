@@ -37,7 +37,6 @@
                             "node_modules/select2-bootstrap-theme/dist/select2-bootstrap.min.css",
                             "node_modules/alertifyjs/build/css/alertify.min.css",
                             "node_modules/alertifyjs/build/css/themes/bootstrap.min.css",
-                            "build/css/custom.css",
                             "src/styles.css"
                         ],
                         "scripts": [
@@ -48,8 +47,8 @@
                             "node_modules/datatables.net-select/js/dataTables.select.js",
                             "node_modules/select2/dist/js/select2.min.js",
                             "node_modules/alertifyjs/build/alertify.min.js",
-                            "node_modules/chart.js/dist/chart.js",
-                            "build/js/custom2.js"
+                            "node_modules/chart.js/dist/chart.js"
+                            
                         ]
                     },
                     "configurations": {

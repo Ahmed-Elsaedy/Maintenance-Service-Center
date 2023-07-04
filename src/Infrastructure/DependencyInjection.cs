@@ -50,7 +50,7 @@ namespace ElarabyCA.Infrastructure
             }).AddRoles<IdentityRole>()
               .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            var cert = new X509Certificate2(Path.Combine(env.ContentRootPath + "\\wwwroot", "gaboub.pfx"), "gaboub");
+            var cert = new X509Certificate2(Path.Combine(env.ContentRootPath + "\\wwwroot\\certificate\\", "certificate.pfx"), "gaboub");
             services.AddIdentityServer()
                 .AddSigningCredential(cert)
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>()
