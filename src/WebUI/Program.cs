@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Events;
 using System;
 using System.Threading.Tasks;
 
@@ -16,54 +17,38 @@ namespace ElarabyCA.WebUI
     {
         public async static Task Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .Enrich.FromLogContext()
-                .WriteTo.Seq("http://localhost:5341") // Use the Seq URL where it is running
-                .CreateLogger();
+            var host = CreateHostBuilder(args).Build();
 
-            try
+            using (var scope = host.Services.CreateScope())
             {
-                var host = CreateHostBuilder(args).Build();
+                var services = scope.ServiceProvider;
 
-                using (var scope = host.Services.CreateScope())
+                try
                 {
-                    var services = scope.ServiceProvider;
+                    var context = services.GetRequiredService<ApplicationDbContext>();
 
-                    //try
-                    //{
-                    //    var context = services.GetRequiredService<ApplicationDbContext>();
+                    if (context.Database.IsSqlite())
+                    {
+                        context.Database.Migrate();
+                    }
 
-                    //    if (context.Database.IsSqlite())
-                    //    {
-                    //        context.Database.Migrate();
-                    //    }
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-                    //    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                    //    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-
-                    //    await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
-                    //    await ApplicationDbContextSeed.SeedSampleDataAsync(context);
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-
-                    //    logger.LogError(ex, "An error occurred while migrating or seeding the database.");
-
-                    //    throw;
-                    //}
+                    await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
+                    //await ApplicationDbContextSeed.SeedSampleDataAsync(context);
                 }
+                catch (Exception ex)
+                {
+                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
 
-                await host.RunAsync();
+                    logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+
+                    throw;
+                }
             }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "Host terminated unexpectedly");
-            }
-            finally
-            {
-                Log.CloseAndFlush();
-            }
+
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -71,7 +56,6 @@ namespace ElarabyCA.WebUI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .UseSerilog();
+                }).UseSerilog();
     }
 }

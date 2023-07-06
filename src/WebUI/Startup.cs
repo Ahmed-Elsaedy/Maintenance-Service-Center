@@ -15,6 +15,8 @@ using Microsoft.Extensions.Logging;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Compact;
 using System;
 using System.Linq;
 
@@ -34,14 +36,30 @@ namespace ElarabyCA.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication();
+            // Add Serilog
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .WriteTo.Conditional(evt => Configuration.GetValue<string>("Logging:Target") == "Seq",
+                    wt => wt.Seq(Configuration.GetConnectionString("SeqServerUrl")))
+                .WriteTo.Conditional(evt => Configuration.GetValue<string>("Logging:Target") == "File",
+                    wt => wt.File(new CompactJsonFormatter(),
+                                  Configuration.GetValue<string>("Logging:FilePath"),
+                                  rollingInterval: RollingInterval.Day,
+                                  retainedFileCountLimit: 7,
+                                  rollOnFileSizeLimit: true,
+                                  fileSizeLimitBytes: 10485760))
+                .CreateLogger();
 
-            // Add Serilog as the logging provider
             services.AddLogging(loggingBuilder =>
             {
                 loggingBuilder.ClearProviders();
                 loggingBuilder.AddSerilog();
             });
+
+            services.AddApplication();
 
             services.AddInfrastructure(Configuration, Environment);
 
@@ -97,6 +115,8 @@ namespace ElarabyCA.WebUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSerilogRequestLogging();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
