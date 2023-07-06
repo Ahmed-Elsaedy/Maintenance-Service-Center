@@ -3,120 +3,118 @@ using System;
 using ElarabyCA.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ElarabyCA.Infrastructure.Persistence.Migrations
+namespace ElarabyCA.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200627044100_StoresEntities")]
-    partial class StoresEntities
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.17");
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.Employee", b =>
                 {
                     b.Property<int>("Oid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("OID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("OID");
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("Birthdate")
                         .HasColumnType("datetime");
 
                     b.Property<bool?>("ChangePasswordOnFirstLogon")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DateEnrolled")
                         .HasColumnType("datetime");
 
                     b.Property<string>("DisplayName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("Gcrecord")
-                        .HasColumnName("GCRecord")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("GCRecord");
 
                     b.Property<string>("IdentityNumber")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsTechnician")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("ObjectType")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("OptimisticLockField")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("PrimaryPhone")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Province")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SecondaryPhone")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("StoredPassword")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Street")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Town")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
-                    b.HasKey("Oid");
+                    b.HasKey("Oid")
+                        .HasName("OID");
 
                     b.HasIndex("Gcrecord")
-                        .HasName("iGCRecord_Employee");
+                        .HasDatabaseName("iGCRecord_Employee");
 
                     b.HasIndex("ObjectType")
-                        .HasName("iObjectType_Employee");
+                        .HasDatabaseName("iObjectType_Employee");
 
                     b.ToTable("Employee");
                 });
 
-            modelBuilder.Entity("ElarabyCA.Domain.Entities.Inventory", b =>
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.FinancialTransaction", b =>
                 {
-                    b.Property<int>("InventoryId")
+                    b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Amount")
+                        .IsRequired()
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Created")
                         .ValueGeneratedOnAdd()
@@ -124,31 +122,84 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("CurrentBalance")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("Type")
+                        .IsRequired()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("Type");
+
+                    b.ToTable("FinancialTransaction");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.Inventory", b =>
+                {
+                    b.Property<int>("InventoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("Created")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CurrentBalance")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("OpeningBalance")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SparePartId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("StoreId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("InventoryId");
 
@@ -163,11 +214,10 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Amount")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Created")
                         .ValueGeneratedOnAdd()
@@ -175,34 +225,34 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("InventoryId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReferenceId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("ReferenceType")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Type")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("TransactionId");
 
@@ -217,29 +267,28 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("Oid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("OID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("OID");
 
                     b.Property<int?>("ActiveTicket")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CaseNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Complaint")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Customer")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("DateAssigned")
                         .HasColumnType("datetime");
@@ -248,175 +297,247 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<int?>("Gcrecord")
-                        .HasColumnName("GCRecord")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("GCRecord");
 
                     b.Property<int?>("InterfaceStatus")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsArchived")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsArgent")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsSynchronized")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Model")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("OptimisticLockField")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Orderid")
-                        .HasColumnName("ORDERID")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ORDERID");
 
                     b.Property<string>("OverviewNotes")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PrimaryPhone")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("Priority")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Product")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReasonLastDelayed")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Region")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReportsOverview")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("RowBytesCount")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Sapnumber")
-                        .HasColumnName("SAPNumber")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("SAPNumber");
 
                     b.Property<string>("SecondaryPhone")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("SiteIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Street")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Tag")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Town")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("WorkOrderId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Oid");
 
                     b.HasIndex("ActiveTicket")
-                        .HasName("iActiveTicket_Order");
+                        .HasDatabaseName("iActiveTicket_Order");
 
                     b.HasIndex("Gcrecord")
-                        .HasName("iGCRecord_Order");
+                        .HasDatabaseName("iGCRecord_Order");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.OrderSMSMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("LastSent")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Report")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SMSMessageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SendCount")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("SMSMessageId");
+
+                    b.ToTable("OrderSMSMessage");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.OrderTicket", b =>
                 {
                     b.Property<int>("Oid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("OID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("OID");
 
                     b.Property<int?>("Category")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("CauseUnCompletion")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Date")
                         .HasColumnType("datetime");
 
                     b.Property<int?>("Employee")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Gcrecord")
-                        .HasColumnName("GCRecord")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("GCRecord");
 
                     b.Property<bool?>("IncludeInOrderNotes")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("Notable")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("OptimisticLockField")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Order")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Report")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Oid");
 
                     b.HasIndex("Category")
-                        .HasName("iCategory_OrderTicket");
+                        .HasDatabaseName("iCategory_OrderTicket");
 
                     b.HasIndex("Employee")
-                        .HasName("iEmployee_OrderTicket");
+                        .HasDatabaseName("iEmployee_OrderTicket");
 
                     b.HasIndex("Gcrecord")
-                        .HasName("iGCRecord_OrderTicket");
+                        .HasDatabaseName("iGCRecord_OrderTicket");
 
                     b.HasIndex("Order")
-                        .HasName("iOrder_OrderTicket");
+                        .HasDatabaseName("iOrder_OrderTicket");
 
                     b.ToTable("OrderTicket");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.SMSMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SMSMessage");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.SparePart", b =>
                 {
                     b.Property<int>("SparePartId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Barcode")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("Category")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Created")
                         .ValueGeneratedOnAdd()
@@ -424,24 +545,24 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("SparePartId");
 
@@ -454,11 +575,10 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("StoreId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Administrator")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Created")
                         .ValueGeneratedOnAdd()
@@ -466,26 +586,26 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("StoreId");
 
@@ -498,60 +618,58 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("Oid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("OID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("OID");
 
                     b.Property<bool?>("Activatable")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("AllowDuplicates")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("BackColor")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("FontColor")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("FontStyle")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Gcrecord")
-                        .HasColumnName("GCRecord")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("GCRecord");
 
                     b.Property<bool?>("IncludeInOrderNotes")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("OptimisticLockField")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Priority")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("Reportable")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("SupportApplyInBatches")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Oid");
 
                     b.HasIndex("Gcrecord")
-                        .HasName("iGCRecord_TicketCategory");
+                        .HasDatabaseName("iGCRecord_TicketCategory");
 
                     b.HasIndex("Title")
                         .IsUnique()
-                        .HasName("iTitle_TicketCategory")
-                        .HasFilter("[Title] IS NOT NULL");
+                        .HasDatabaseName("iTitle_TicketCategory");
 
                     b.ToTable("TicketCategory");
                 });
@@ -560,8 +678,7 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("ValueGroupId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Created")
                         .ValueGeneratedOnAdd()
@@ -569,27 +686,27 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Group")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(450)")
-                        .HasMaxLength(450);
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ValueGroupId");
 
@@ -599,64 +716,63 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("ElarabyCA.Infrastructure.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                        .HasDatabaseName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -664,34 +780,34 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClientId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Data")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasMaxLength(50000);
+                        .HasMaxLength(50000)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("DeviceCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("Expiration")
                         .IsRequired()
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SubjectId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserCode");
 
@@ -706,33 +822,33 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.PersistedGrant", b =>
                 {
                     b.Property<string>("Key")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClientId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Data")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasMaxLength(50000);
+                        .HasMaxLength(50000)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("Expiration")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SubjectId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Key");
 
@@ -746,26 +862,25 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -774,18 +889,17 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -798,18 +912,17 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -821,19 +934,19 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -845,10 +958,10 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -860,22 +973,41 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.FinancialTransaction", b =>
+                {
+                    b.HasOne("ElarabyCA.Domain.Entities.Employee", "EmployeeNavigation")
+                        .WithMany("FinancialTransactions")
+                        .HasForeignKey("EmployeeId")
+                        .HasConstraintName("FK_FinancialTransaction_Employee");
+
+                    b.HasOne("ElarabyCA.Domain.Entities.ValueGroup", "TypeNavigation")
+                        .WithMany("FinancialTransactionTypes")
+                        .HasForeignKey("Type")
+                        .HasConstraintName("FK_FinancialTransaction_ValueObject")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EmployeeNavigation");
+
+                    b.Navigation("TypeNavigation");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.Inventory", b =>
@@ -891,6 +1023,10 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasForeignKey("StoreId")
                         .HasConstraintName("FK_Inventory_Store")
                         .IsRequired();
+
+                    b.Navigation("SparePart");
+
+                    b.Navigation("Store");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.InventoryTransaction", b =>
@@ -905,6 +1041,10 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .WithMany("InventoryTransactionTypes")
                         .HasForeignKey("Type")
                         .HasConstraintName("FK_InventoryTransaction_ValueObject");
+
+                    b.Navigation("Inventory");
+
+                    b.Navigation("TypeNavigation");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.Order", b =>
@@ -913,6 +1053,27 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .WithMany("OrderNavigation")
                         .HasForeignKey("ActiveTicket")
                         .HasConstraintName("FK_Order_ActiveTicket");
+
+                    b.Navigation("ActiveTicketNavigation");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.OrderSMSMessage", b =>
+                {
+                    b.HasOne("ElarabyCA.Domain.Entities.Order", "Order")
+                        .WithMany("OrderSMSMessages")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ElarabyCA.Domain.Entities.SMSMessage", "SMSMessage")
+                        .WithMany("OrderSMSMessages")
+                        .HasForeignKey("SMSMessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("SMSMessage");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.OrderTicket", b =>
@@ -931,6 +1092,12 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .WithMany("OrderTicket")
                         .HasForeignKey("Order")
                         .HasConstraintName("FK_OrderTicket_Order");
+
+                    b.Navigation("CategoryNavigation");
+
+                    b.Navigation("EmployeeNavigation");
+
+                    b.Navigation("Order1");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.SparePart", b =>
@@ -939,6 +1106,8 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .WithMany("SparePartCategories")
                         .HasForeignKey("Category")
                         .HasConstraintName("FK_SparePart_ValueObject");
+
+                    b.Navigation("CategoryNavigation");
                 });
 
             modelBuilder.Entity("ElarabyCA.Domain.Entities.Store", b =>
@@ -948,6 +1117,8 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasForeignKey("Administrator")
                         .HasConstraintName("FK_Store_Employee")
                         .IsRequired();
+
+                    b.Navigation("AdministratorNavigation");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -999,6 +1170,61 @@ namespace ElarabyCA.Infrastructure.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.Employee", b =>
+                {
+                    b.Navigation("FinancialTransactions");
+
+                    b.Navigation("OrderTicket");
+
+                    b.Navigation("Stores");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.Inventory", b =>
+                {
+                    b.Navigation("InventoryTransactions");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.Order", b =>
+                {
+                    b.Navigation("OrderSMSMessages");
+
+                    b.Navigation("OrderTicket");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.OrderTicket", b =>
+                {
+                    b.Navigation("OrderNavigation");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.SMSMessage", b =>
+                {
+                    b.Navigation("OrderSMSMessages");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.SparePart", b =>
+                {
+                    b.Navigation("Inventories");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.Store", b =>
+                {
+                    b.Navigation("Inventories");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.TicketCategory", b =>
+                {
+                    b.Navigation("OrderTicket");
+                });
+
+            modelBuilder.Entity("ElarabyCA.Domain.Entities.ValueGroup", b =>
+                {
+                    b.Navigation("FinancialTransactionTypes");
+
+                    b.Navigation("InventoryTransactionTypes");
+
+                    b.Navigation("SparePartCategories");
                 });
 #pragma warning restore 612, 618
         }

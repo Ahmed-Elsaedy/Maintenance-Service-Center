@@ -11,8 +11,10 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using Serilog;
 using System;
 using System.Linq;
 
@@ -33,6 +35,14 @@ namespace ElarabyCA.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication();
+
+            // Add Serilog as the logging provider
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.ClearProviders();
+                loggingBuilder.AddSerilog();
+            });
+
             services.AddInfrastructure(Configuration, Environment);
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
@@ -90,7 +100,7 @@ namespace ElarabyCA.WebUI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                //app.UseDatabaseErrorPage();
             }
             else
             {
@@ -136,8 +146,8 @@ namespace ElarabyCA.WebUI
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
-                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    //spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
         }

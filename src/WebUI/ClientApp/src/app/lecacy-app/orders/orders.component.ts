@@ -13,6 +13,7 @@ import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-orders',
+  styleUrls: ['./orders.component.css'],
   templateUrl: './orders.component.html'
 })
 export class OrdersComponent extends ListComponentBase {

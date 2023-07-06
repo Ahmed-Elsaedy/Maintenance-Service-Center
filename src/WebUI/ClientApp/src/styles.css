@@ -39,3 +39,9 @@ min-height: 37px;
 /* .nav.navbar-nav.navbar-right li{
 display:  none;
 } */
+
+div.dataTables_wrapper div.dataTables_length select {
+    margin: 0px 5px!important;
+    width: 75px;
+    display: inline-block;
+}

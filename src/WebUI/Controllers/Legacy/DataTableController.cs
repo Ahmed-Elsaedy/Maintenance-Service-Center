@@ -72,7 +72,7 @@ namespace ElarabyCore2.WebApp.Controllers
             // Filteration
             data = this.OnConfigureFilters<TModel>(data, request);
 
-              
+
 
             // Hide Deleted Rows
             var filter = new FilterContainer()
@@ -166,8 +166,12 @@ namespace ElarabyCore2.WebApp.Controllers
                         }
 
                         if (request.AdditionalParameters.ContainsKey("oid"))
-                            result = result.Where(x => x.Oid.ToString()
-                             .Contains(request.AdditionalParameters["oid"].ToString()));
+                        {
+                            if (int.TryParse(request.AdditionalParameters["oid"].ToString(), out int oid))
+                            {
+                                result = result.Where(x => x.Oid == oid);
+                            }
+                        }
 
                         if (request.AdditionalParameters.ContainsKey("customer"))
                             result = result.Where(x => !string.IsNullOrEmpty(x.Customer) &&

@@ -1,4 +1,5 @@
-﻿using ElarabyCA.Application.Common.Interfaces;
+﻿using AutoMapper.Configuration;
+using ElarabyCA.Application.Common.Interfaces;
 using ElarabyCA.Infrastructure.Files;
 using ElarabyCA.Infrastructure.Identity;
 using ElarabyCA.Infrastructure.Persistence;
@@ -17,8 +18,8 @@ namespace ElarabyCA.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, 
-            IConfiguration configuration, IHostEnvironment env)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services,
+            Microsoft.Extensions.Configuration.IConfiguration configuration, IHostEnvironment env)
         {
             if (configuration.GetValue<bool>("UseInMemoryDatabase"))
             {
@@ -27,16 +28,27 @@ namespace ElarabyCA.Infrastructure
             }
             else
             {
+                //services.AddDbContext<ApplicationDbContext>(options =>
+                //    options.UseSqlServer(
+                //        configuration.GetConnectionString("DefaultConnection"), opt =>
+                //        {
+                //            opt.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                //            opt.EnableRetryOnFailure();
+                //        }));
+
+                //string mySqlConnectionStr = configuration.GetConnectionString("MySqlConnection");
+                //services.AddDbContext<ApplicationDbContext>(options =>
+                //    options.UseMySQL(mySqlConnectionStr, opt =>
+                //    {
+                //        opt.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                //    }));
+
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
-                        configuration.GetConnectionString("DefaultConnection"), opt =>
-                        {
-                            opt.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
-                            opt.EnableRetryOnFailure();
-                        }));
+                    options.UseSqlite(configuration.GetConnectionString("SqlLiteConnection")));
             }
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+
 
             services.AddDefaultIdentity<ApplicationUser>(options =>
             {
