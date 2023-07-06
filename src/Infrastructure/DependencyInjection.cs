@@ -23,8 +23,8 @@ namespace ElarabyCA.Infrastructure
         {
             if (configuration.GetValue<bool>("UseInMemoryDatabase"))
             {
-                services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseInMemoryDatabase("ElarabyCADb"));
+                //services.AddDbContext<ApplicationDbContext>(options =>
+                //    options.UseInMemoryDatabase("ElarabyCADb"));
             }
             else
             {
