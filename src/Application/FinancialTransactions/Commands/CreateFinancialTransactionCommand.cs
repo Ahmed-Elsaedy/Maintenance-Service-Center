@@ -16,7 +16,7 @@ namespace ElarabyCA.Application.FinancialTransactions.Commands
 {
     public class CreateFinancialTransactionCommand : IRequest<int>
     {
-        public int Type { get; set; }
+        public string Type { get; set; }
         public int Amount { get; set; }
         public string Title { get; set; }
         public string Remarks { get; set; }
@@ -35,11 +35,14 @@ namespace ElarabyCA.Application.FinancialTransactions.Commands
         }
         public async Task<int> Handle(CreateFinancialTransactionCommand request, CancellationToken cancellationToken)
         {
+            var transactionTypeValue = await _context.ValueGroup
+                .FirstOrDefaultAsync(x => x.Value == request.Type && x.Group == nameof(FinancialTransactionType), cancellationToken);
+
             FinancialTransaction entity = new FinancialTransaction()
             {
                 Date = request.Date,
                 Amount = request.Amount,
-                Type = request.Type,
+                Type = transactionTypeValue.ValueGroupId,
                 Title = request.Title,
                 Remarks = request.Remarks,
                 EmployeeId = request.EmployeeId,

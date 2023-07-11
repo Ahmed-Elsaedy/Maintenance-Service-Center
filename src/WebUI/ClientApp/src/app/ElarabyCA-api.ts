@@ -7622,7 +7622,7 @@ export interface IFinancialTransactionsStatisticsQuery {
 }
 
 export class CreateFinancialTransactionCommand implements ICreateFinancialTransactionCommand {
-    type?: number;
+    type?: string;
     amount?: number;
     title?: string | undefined;
     remarks?: string | undefined;
@@ -7669,7 +7669,7 @@ export class CreateFinancialTransactionCommand implements ICreateFinancialTransa
 }
 
 export interface ICreateFinancialTransactionCommand {
-    type?: number;
+    type?: string | undefined;
     amount?: number;
     title?: string | undefined;
     remarks?: string | undefined;
@@ -7679,7 +7679,7 @@ export interface ICreateFinancialTransactionCommand {
 
 export class UpdateFinancialTransactionCommand implements IUpdateFinancialTransactionCommand {
     transactionId?: number;
-    type?: number;
+    type?: string | undefined;
     amount?: number;
     title?: string | undefined;
     remarks?: string | undefined;
@@ -7729,7 +7729,7 @@ export class UpdateFinancialTransactionCommand implements IUpdateFinancialTransa
 
 export interface IUpdateFinancialTransactionCommand {
     transactionId?: number;
-    type?: number;
+    type?: string | undefined;
     amount?: number;
     title?: string | undefined;
     remarks?: string | undefined;

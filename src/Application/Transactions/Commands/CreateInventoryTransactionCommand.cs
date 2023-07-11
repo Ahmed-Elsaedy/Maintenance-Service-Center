@@ -18,7 +18,7 @@ namespace ElarabyCA.Application.InventoryTransactions.Commands
     {
         public int InventoryId { get; set; }
 
-        public int? Type { get; set; }
+        public string Type { get; set; }
         public int? Amount { get; set; }
         public string Description { get; set; }
 
@@ -37,21 +37,21 @@ namespace ElarabyCA.Application.InventoryTransactions.Commands
         }
         public async Task<int> Handle(CreateInventoryTransactionCommand request, CancellationToken cancellationToken)
         {
+            var transactionTypeValue = await _context.ValueGroup
+                    .FirstOrDefaultAsync(x => x.Value == request.Type && x.Group == nameof(TransactionType), cancellationToken);
+
             InventoryTransaction entity = new InventoryTransaction()
             {
                 Amount = request.Amount,
                 ReferenceId = request.ReferenceId,
                 ReferenceType = request.ReferenceType,
                 Description = request.Description,
-                Type = request.Type,
+                Type = transactionTypeValue.ValueGroupId,
                 InventoryId = request.InventoryId
             };
 
             var inventory = await _context.Inventory
                     .FirstOrDefaultAsync(x => x.InventoryId == request.InventoryId, cancellationToken);
-
-            var transactionTypeValue = await _context.ValueGroup
-                    .FirstOrDefaultAsync(x => x.ValueGroupId == entity.Type.Value, cancellationToken);
 
             if (Enum.TryParse(typeof(TransactionType), transactionTypeValue.Value, out object transactionType))
             {
@@ -96,7 +96,7 @@ namespace ElarabyCA.Application.InventoryTransactions.Commands
                                     ReferenceId = request.ReferenceId,
                                     ReferenceType = 1002,
                                     Description = request.Description,
-                                    Type = request.Type,
+                                    Type = transactionTypeValue.ValueGroupId,
                                 });
 
                         _context.InventoryTransaction.Add(entity);

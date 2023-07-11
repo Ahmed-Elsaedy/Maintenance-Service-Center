@@ -4,7 +4,7 @@
             {{'dialogTitles.newTransaction' | translate}}
         </h2>
         <mat-dialog-content>
-            <div class="container" fxLayout="column">
+            <div class="" fxLayout="column">
 
                 <div fxLayout="row" fxLayoutGap="10px">
                     <mat-form-field [dir]="dir" appearance="outline" fxFlex>
@@ -19,18 +19,18 @@
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="10px">
-                    <mat-form-field [dir]="dir" appearance="outline" [fxFlex]='type.value == 3 ? "33%" : "50%"'>
+                    <mat-form-field [dir]="dir" appearance="outline" [fxFlex]='type.value == "Transfer" ? "33%" : "50%"'>
                         <mat-label> {{ 'models.inventoryTransaction.type' | translate}}</mat-label>
                         <mat-select formControlName='type' #type required>
                             <mat-option [value]="null"></mat-option>
-                            <mat-option *ngFor='let t of transactionTypes' [value]="t.valueGroupId">
+                            <mat-option *ngFor='let t of transactionTypes' [value]="t.value">
                                 {{('models.valuegroup.values.transactionType.' + t.value) | translate}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
 
-                    <mat-form-field [dir]="dir" appearance="outline" *ngIf='type.value == 3' [fxFlex]='type.value == 3 ? "33%" : "50%"'>
-                        <mat-label> {{ 'models.store.title' | translate}}</mat-label>
+                    <mat-form-field [dir]="dir" appearance="outline" *ngIf='type.value == "Transfer"' [fxFlex]='type.value == "Transfer" ? "33%" : "50%"'>
+                        <mat-label> {{ 'models.inventoryTransaction.storeId' | translate}}</mat-label>
                         <mat-select formControlName='storeId'>
                             <mat-option *ngFor="let e of stores" [value]="e.storeId">
                                 {{e.title}}
@@ -39,7 +39,7 @@
                     </mat-form-field>
 
 
-                    <mat-form-field [dir]="dir" appearance="outline" [fxFlex]='type.value == 3 ? "30%" : "50%"'>
+                    <mat-form-field [dir]="dir" appearance="outline" [fxFlex]='type.value == "Transfer" ? "30%" : "50%"'>
                         <mat-label> {{ 'models.inventoryTransaction.amount' | translate}}</mat-label>
                         <input matInput type="number" autocomplete="off" formControlName='amount' />
                     </mat-form-field>
@@ -48,7 +48,7 @@
 
                 <div fxLayout="row" fxLayoutGap="10px">
 
-                    <mat-form-field [dir]="dir" appearance="outline" fxFlex *ngIf='formGroup.controls.type.value == 5'>
+                    <!-- <mat-form-field [dir]="dir" appearance="outline" fxFlex *ngIf='formGroup.controls.type.value == "Transfer"'>
                         <mat-label> {{ 'models.inventoryTransaction.storeId' | translate}}</mat-label>
                         <mat-select formControlName='storeId'>
                             <mat-option [value]="null"></mat-option>
@@ -56,7 +56,7 @@
                                 {{s.title}}
                             </mat-option>
                         </mat-select>
-                    </mat-form-field>
+                    </mat-form-field> -->
 
                     <mat-form-field [dir]="dir" appearance="outline" fxFlex>
                         <mat-label> {{ 'models.inventoryTransaction.description' | translate}}</mat-label>

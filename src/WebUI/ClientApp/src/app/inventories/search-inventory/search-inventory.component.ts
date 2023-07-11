@@ -95,7 +95,9 @@ export class SearchInventoryComponent implements OnInit {
 
     this.searchGridOptions.selectionModel.changed.subscribe(x => this.selectionChanged(x));
     this.valueGroupsClient.getReferenceTypes().subscribe(res => this.referenceTypes = res);
-    this.valueGroupsClient.getTransactionTypes().subscribe(res => this.transactionTypes = res);
+    this.valueGroupsClient.getTransactionTypes().subscribe(res =>
+      { debugger;
+        this.transactionTypes = res; });
     this.storesClient.search(null).subscribe(res => this.stores = res.data);
   }
 
@@ -119,6 +121,7 @@ export class SearchInventoryComponent implements OnInit {
     dialogRef.componentInstance.stores = this.stores.filter(x => x.storeId != inventory.storeId);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        debugger;
         this.transactionsClient.create(result).subscribe(x => {
           this.searchGridOptions.dataSource.loadData();
         }, (e) => this.errorHandler(e));

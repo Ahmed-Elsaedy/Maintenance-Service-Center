@@ -10,6 +10,8 @@ import { ListComponentBase } from '../core/abstract/list-component.base';
 import { isNullOrUndefined } from 'util';
 import { FieldType } from '../core/models/query-designer/field-type.enum';
 import { ClipboardService } from 'ngx-clipboard';
+import { TranslateService } from '@ngx-translate/core';
+import { AppAction } from '../core/enums/app-actions.enum';
 
 @Component({
   selector: 'app-orders',
@@ -28,7 +30,8 @@ export class OrdersComponent extends ListComponentBase {
     private alertify: AlertifyService,
     private router: Router,
     @Inject('BASE_URL') private baseUrl: string,
-    private _clipboardService: ClipboardService) {
+    private _clipboardService: ClipboardService,
+    private translate: TranslateService) {
     super(sidePanel, actionsService, loaderService, dataApi);
     this.title = "Orders";
     this.dataApi.controller = "Order";
@@ -39,41 +42,44 @@ export class OrdersComponent extends ListComponentBase {
     return super.actions.filter(x => x.group == ActionGroup.Orders);
   }
 
+
+
   ngOnInit() {
     //this.dtOptions["searching"] = false;
     this.dtOptions["language"] = {
       search: "Search",
       searchPlaceholder: "(Search in report...)"
     };
+    
     this.dtOptions["columns"] = [
-      { data: "oid", name: "Oid", title: "OID", type: FieldType.Number },
-      { data: "orderid", name: "Orderid", title: "OrderID", sortable: false, type: FieldType.String },
-      { data: "dateAssigned", name: "DateAssigned", title: "Date", type: FieldType.Date },
-      { data: "customer", name: "Customer", title: "Customer", sortable: false, type: FieldType.String },
-      { data: "primaryPhone", name: "PrimaryPhone", title: "Phone", sortable: false, type: FieldType.String },
-      { data: "secondaryPhone", name: "SecondaryPhone", title: "Phone2", sortable: false, type: FieldType.String },
-      { data: "region", name: "Region", title: "Region", type: FieldType.String },
+      { data: "oid", name: "Oid", title: 'models.order.oid', type: FieldType.Number },
+      { data: "orderid", name: "Orderid", title: "models.order.caseNumber", sortable: false, type: FieldType.String },
+      { data: "dateAssigned", name: "DateAssigned", title: "models.order.dateAssigned", type: FieldType.Date },
+      { data: "customer", name: "Customer", title: "models.order.customer", sortable: false, type: FieldType.String },
+      { data: "primaryPhone", name: "PrimaryPhone", title: "models.order.primaryPhone", sortable: false, type: FieldType.String },
+      { data: "secondaryPhone", name: "SecondaryPhone", title: "models.order.secondaryPhone", sortable: false, type: FieldType.String },
+      { data: "region", name: "Region", title: "models.order.region", type: FieldType.String },
       { data: "street", name: "Street", title: "Notes", sortable: true, type: FieldType.String },
-      { data: "address", name: "Address", title: "Address", sortable: false, type: FieldType.String },
-      { data: "product", name: "Product", title: "Product", type: FieldType.String },
-      { data: "model", name: "Model", title: "Model", sortable: false, type: FieldType.String },
-      { data: "complaint", name: "Complaint", title: "Complaint", sortable: false, type: FieldType.String },
-      { data: "ticketCategory", name: "ActiveTicketNavigation.Category", title: "Category", type: FieldType.Lookup },
-      { data: "ticketReport", name: "ActiveTicketNavigation.Report", title: "Report", sortable: false, type: FieldType.String },
-      { data: "ticketEmployee", name: "ActiveTicketNavigation.Employee", title: "Employee", sortable: true, type: FieldType.Lookup },
+      { data: "address", name: "Address", title: "models.order.address", sortable: false, type: FieldType.String },
+      { data: "product", name: "Product", title: "models.order.product", type: FieldType.String },
+      { data: "model", name: "Model", title: "models.order.model", sortable: false, type: FieldType.String },
+      { data: "complaint", name: "Complaint", title: "models.order.complaint", sortable: false, type: FieldType.String },
+      { data: "ticketCategory", name: "ActiveTicketNavigation.Category", title: "models.orderTicket.category", type: FieldType.Lookup },
+      { data: "ticketReport", name: "ActiveTicketNavigation.Report", title: "models.order.report", sortable: false, type: FieldType.String },
+      { data: "ticketEmployee", name: "ActiveTicketNavigation.Employee", title: "models.order.displayName", sortable: true, type: FieldType.Lookup },
     ];
     this.dtOptions["columnDefs"] = [
-      {
-        // OID + OrderOID
-        targets: 0,
-        render: function (data, type, row) {
-          var d = '(' + data + ') ' + (row.orderid || '');
-          if (d.length > 15) {
-            d = d.substr(0, 15) + '...';
-          }
-          return '<span title="' + row.orderid + '">' + d + '</span>'
-        }
-      },
+      // {
+      //   // OID + OrderOID
+      //   targets: 0,
+      //   render: function (data, type, row) {
+      //     var d = '(' + data + ') ' + (row.orderid || '');
+      //     if (d.length > 15) {
+      //       d = d.substr(0, 15) + '...';
+      //     }
+      //     return '<span title="' + row.orderid + '">' + d + '</span>'
+      //   }
+      // },
       {
         // Formatting Date
         targets: 2,
@@ -81,29 +87,29 @@ export class OrdersComponent extends ListComponentBase {
           return (new Date(data)).toLocaleString();
         }
       },
-      {
-        // Combining Phones
-        targets: 4,
-        render: function (data, type, row) {
-          return (data || '') + ' ' + (row.secondaryPhone || '');
-        }
-      },
-      {
-        // Product + Model
-        targets: 9,
-        render: function (data, type, row) {
-          return data + '<br/>(' + row.model + ')';
-        }
-      },
-      {
-        // Region + Address
-        targets: 8,
-        width: "15%",
-        render: function (data, type, row) {
-          var d = (row.region || '') + ' ' + (data || '');
-          return '<span title="' + d + '">' + (d.length > 40 ? d.substr(0, 40) + "..." : d) + '</span>'
-        }
-      },
+      // {
+      //   // Combining Phones
+      //   targets: 4,
+      //   render: function (data, type, row) {
+      //     return (data || '') + ' ' + (row.secondaryPhone || '');
+      //   }
+      // },
+      // {
+      //   // Product + Model
+      //   targets: 9,
+      //   render: function (data, type, row) {
+      //     return data + '<br/>(' + row.model + ')';
+      //   }
+      // },
+      // {
+      //   // Region + Address
+      //   targets: 8,
+      //   width: "15%",
+      //   render: function (data, type, row) {
+      //     var d = (row.region || '') + ' ' + (data || '');
+      //     return '<span title="' + d + '">' + (d.length > 40 ? d.substr(0, 40) + "..." : d) + '</span>'
+      //   }
+      // },
       {
         // Report
         targets: 13,
@@ -114,17 +120,13 @@ export class OrdersComponent extends ListComponentBase {
           else
             return '';
         }
-      },
-      {
-        targets: 14,
-        render: function (data, type, row) {
-          return `<span style="border-bottom: 1px dotted;">${(data || '')}</span>` + '<br/>' + (row.ticketCategory || '')
-        }
-      },
-      {
-        targets: [1, 5, 10, 12, 6],
-        visible: false
       }
+      // {
+      //   targets: 14,
+      //   render: function (data, type, row) {
+      //     return `<span style="border-bottom: 1px dotted;">${(data || '')}</span>` + '<br/>' + (row.ticketCategory || '')
+      //   }
+      // }
     ]
     this.dtOptions["order"] = [[0, "desc"]];
     super.ngOnInit();
@@ -201,6 +203,9 @@ export class OrdersComponent extends ListComponentBase {
   }
 
   onExecuteAction(id) {
+    var test = this.translate.instant('indexView.create');
+    console.log('heeee ', test);
+
     switch (<ActionType>id) {
       case ActionType.NewOrder:
         this.editMode = EditMode.Order;

@@ -37,6 +37,7 @@ namespace ElarabyCA.WebUI
 
                     await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
                     //await ApplicationDbContextSeed.SeedSampleDataAsync(context);
+                    await ApplicationDbContextSeed.SeedValueGroups(context);
                 }
                 catch (Exception ex)
                 {

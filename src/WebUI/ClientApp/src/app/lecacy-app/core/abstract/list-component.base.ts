@@ -4,6 +4,7 @@ import { SidePanelService } from '../services/side-panel.service';
 import { AppActionsService, SelectionMode } from '../services/app-actions.service';
 import { LoaderService } from '../services/loader.service';
 import { DataApiService } from '../services/data-api.service';
+import { AppAction } from '../enums/app-actions.enum';
 
 export class ListComponentBase implements OnInit, OnDestroy {
     protected subs: Subscription[] = [];
@@ -34,6 +35,8 @@ export class ListComponentBase implements OnInit, OnDestroy {
     get actions() {
         return this.actionsService.actions.filter(x=> x.visible);
     }
+
+
 
     ngOnInit() {
         this.subs.push(this.sidePanel.panelSubmitted.subscribe(

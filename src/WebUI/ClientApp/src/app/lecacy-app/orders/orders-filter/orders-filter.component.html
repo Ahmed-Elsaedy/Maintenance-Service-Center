@@ -1,34 +1,34 @@
 <form class="form-horizontal" [formGroup]='formGroup' (ngSubmit)="onSubmit()">
 
     <div class="col form-group has-danger">
-        <label for="oid">OID:</label>
+        <label for="oid">{{ 'models.order.oid' | translate }}</label>
         <input type="text" id="oid" class="form-control" autocomplete="off" formControlName="oid">
     </div>
 
     <div class="col form-group">
-        <label for="customer">Client Name:</label>
+        <label for="customer">{{ 'models.order.customer' | translate }}</label>
         <input type="text" id="customer" class="form-control" autocomplete="off" formControlName="customer">
     </div>
 
     <div class="col form-group">
-        <label for="phones">Phones:</label>
+        <label for="phones">{{ 'models.order.primaryPhone' | translate }}</label>
         <input type="number" id="phones" class="form-control" autocomplete="off" formControlName="phones">
     </div>
 
     <div class="col form-group">
-        <label for="region" class="text-danger">Region:</label>
+        <label for="region" class="text-danger">{{ 'models.order.region' | translate }}</label>
         <select id="region" class="form-control" data-tags="true" data-width="100%" multiple>
         </select>
     </div>
 
     <div class="col form-group">
-        <label for="note" class="text-danger">Notes:</label>
+        <label for="note" class="text-danger">{{ 'models.order.street' | translate }}</label>
         <select id="note" class="form-control" data-tags="true" data-width="100%" multiple>
         </select>
     </div>
 
     <div class="col form-group">
-        <label for="ticket" class="text-danger">Active Ticket:</label>
+        <label for="ticket" class="text-danger">{{ 'models.orderTicket.category' | translate }}</label>
         <select id="ticket" class="form-control" data-tags="true" data-width="100%" multiple>
         </select>
     </div>

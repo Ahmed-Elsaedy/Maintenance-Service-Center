@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using ElarabyCA.Application.Stores.Queries;
+using ElarabyCA.Domain.Enums;
 
 namespace ElarabyCA.Application.Transactions.Queries.Search
 {
@@ -44,6 +45,13 @@ namespace ElarabyCA.Application.Transactions.Queries.Search
 
         public async Task<FinancialTransactionsStatisticsQueryViewModel> Handle(FinancialTransactionsStatisticsQuery request, CancellationToken cancellationToken)
         {
+            var transactionTypes = await _context.ValueGroup
+                .Where(x => x.Group == nameof(FinancialTransactionType))
+                .ToListAsync();
+
+            var deposit = transactionTypes.FirstOrDefault(x => x.Value == nameof(FinancialTransactionType.Income));
+            var widthrawal = transactionTypes.FirstOrDefault(x => x.Value == nameof(FinancialTransactionType.Expense));
+
             var result = new FinancialTransactionsStatisticsQueryViewModel();
 
             IQueryable<FinancialTransaction> query = _context.FinancialTransaction;
@@ -58,8 +66,8 @@ namespace ElarabyCA.Application.Transactions.Queries.Search
 
             result.FromDate = request.FromDate;
             result.ToDate = result.ToDate;
-            result.TotalIncomes = await query.Where(x => x.Type == 7).SumAsync(x => x.Amount.Value);
-            result.TotalExpenses = await query.Where(x => x.Type == 8).SumAsync(x => x.Amount.Value);
+            result.TotalIncomes = await query.Where(x => x.Type == deposit.ValueGroupId).SumAsync(x => x.Amount.Value);
+            result.TotalExpenses = await query.Where(x => x.Type == widthrawal.ValueGroupId).SumAsync(x => x.Amount.Value);
             result.Savings = result.TotalIncomes - result.TotalExpenses;
 
             return result;

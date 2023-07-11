@@ -9,6 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PatchEditComponent } from './patch-edit/patch-edit.component';
 import { OrdersFilterComponent } from './orders-filter/orders-filter.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -17,7 +22,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     HttpClientModule,
     SharedModule,
     OrdersRoutingModule,
-    ClipboardModule
+    ClipboardModule,
+    TranslateModule
   ],
   declarations: [
     PatchEditComponent,

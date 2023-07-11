@@ -40,7 +40,7 @@ export class AddTransactionComponent implements OnInit {
 
     this.formGroup.get('type').valueChanges.subscribe(c => {
       var storeId = this.formGroup.get('storeId');
-      if (c == 3)
+      if (c == "Transfer")
         storeId.setValidators([Validators.required]);
       else
         this.formGroup.get('storeId').clearValidators();

@@ -4,7 +4,7 @@
             {{'dialogTitles.newFinancialTransaction' | translate}}
         </h2>
         <mat-dialog-content>
-            <div class="container" fxLayout="column">
+            <div class="" fxLayout="column">
 
                 <div fxLayout="row" fxLayoutGap="10px">
                     <mat-form-field [dir]="dir" appearance="outline" fxFlex>
@@ -25,7 +25,7 @@
                         <mat-label> {{ 'models.financialTransaction.type' | translate}}</mat-label>
                         <mat-select formControlName='type' #type required>
                             <mat-option [value]="null"></mat-option>
-                            <mat-option *ngFor='let t of transactionTypes' [value]="t.valueGroupId">
+                            <mat-option *ngFor='let t of transactionTypes' [value]="t.value">
                                 {{('models.valuegroup.values.financialTransactionType.' + t.value) | translate}}
                             </mat-option>
                         </mat-select>

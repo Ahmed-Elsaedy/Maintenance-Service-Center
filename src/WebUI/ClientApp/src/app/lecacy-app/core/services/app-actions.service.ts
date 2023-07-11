@@ -8,28 +8,28 @@ export class AppActionsService {
 
   constructor() {
 
-    this.actions.push({ type: ActionType.NewOrder, title: 'New', disabled: false, group: ActionGroup.Orders, visible: false });
-    this.actions.push({ type: ActionType.EditOrder, title: 'Edit', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Single, visible: false });
-    this.actions.push({ type: ActionType.DeleteOrder, title: 'Delete', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Single, visible: false });
-    this.actions.push({ type: ActionType.AddReport, title: 'Add Report', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Single, visible: false });
-    this.actions.push({ type: ActionType.CopyOrderToClipboard, title: 'Copy Data', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Multi, visible: false });
-    this.actions.push({ type: ActionType.CopyIDsToClipboard, title: 'Copy IDs', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Multi, visible: false });
+    this.actions.push({ type: ActionType.NewOrder, title: 'indexView.create', disabled: false, group: ActionGroup.Orders, visible: false });
+    this.actions.push({ type: ActionType.EditOrder, title: 'indexView.edit', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.DeleteOrder, title: 'indexView.delete', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.AddReport, title: 'indexView.addOrderReport', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.CopyOrderToClipboard, title: 'indexView.copyOrderToClipboard', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Multi, visible: false });
+    this.actions.push({ type: ActionType.CopyIDsToClipboard, title: 'indexView.copyIDsToClipboard', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Multi, visible: false });
     // this.actions.push({ type: ActionType.PatchEdit, title: 'Patch', disabled: true, group: ActionGroup.Orders, selMode: SelectionMode.Multi, visible: false });
-    this.actions.push({ type: ActionType.OrderQuery, title: 'Filter', disabled: false, group: ActionGroup.Orders, visible: false });
+    this.actions.push({ type: ActionType.OrderQuery, title: 'indexView.filter', disabled: false, group: ActionGroup.Orders, visible: false });
 
-    this.actions.push({ type: ActionType.NewTicket, title: 'New', disabled: false, group: ActionGroup.Tickets, visible: false });
-    this.actions.push({ type: ActionType.EditTicket, title: 'Edit', disabled: true, group: ActionGroup.Tickets, selMode: SelectionMode.Single, visible: false });
-    this.actions.push({ type: ActionType.DeleteTicket, title: 'Delete', disabled: true, group: ActionGroup.Tickets, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.NewTicket, title: 'indexView.create', disabled: false, group: ActionGroup.Tickets, visible: false });
+    this.actions.push({ type: ActionType.EditTicket, title: 'indexView.edit', disabled: true, group: ActionGroup.Tickets, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.DeleteTicket, title: 'indexView.delete', disabled: true, group: ActionGroup.Tickets, selMode: SelectionMode.Single, visible: false });
 
-    this.actions.push({ type: ActionType.NewEmployee, title: 'New', disabled: false, group: ActionGroup.Employees, visible: false });
-    this.actions.push({ type: ActionType.EditEmployee, title: 'Edit', disabled: true, group: ActionGroup.Employees, selMode: SelectionMode.Single, visible: false });
-    this.actions.push({ type: ActionType.DeleteEmployee, title: 'Delete', disabled: true, group: ActionGroup.Employees, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.NewEmployee, title: 'indexView.create', disabled: false, group: ActionGroup.Employees, visible: false });
+    this.actions.push({ type: ActionType.EditEmployee, title: 'indexView.edit', disabled: true, group: ActionGroup.Employees, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.DeleteEmployee, title: 'indexView.delete', disabled: true, group: ActionGroup.Employees, selMode: SelectionMode.Single, visible: false });
 
-    this.actions.push({ type: ActionType.NewCategory, title: 'New', disabled: false, group: ActionGroup.Categories, visible: false });
-    this.actions.push({ type: ActionType.EditCategory, title: 'Edit', disabled: true, group: ActionGroup.Categories, selMode: SelectionMode.Single, visible: false });
-    this.actions.push({ type: ActionType.DeleteCategory, title: 'Delete', disabled: true, group: ActionGroup.Categories, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.NewCategory, title: 'indexView.create', disabled: false, group: ActionGroup.Categories, visible: false });
+    this.actions.push({ type: ActionType.EditCategory, title: 'indexView.edit', disabled: true, group: ActionGroup.Categories, selMode: SelectionMode.Single, visible: false });
+    this.actions.push({ type: ActionType.DeleteCategory, title: 'indexView.delete', disabled: true, group: ActionGroup.Categories, selMode: SelectionMode.Single, visible: false });
 
-    this.actions.push({ type: ActionType.DownloadWorkOrders, title: 'Download', disabled: true, group: ActionGroup.Elaraby, selMode: SelectionMode.Manual, visible: false });
+    this.actions.push({ type: ActionType.DownloadWorkOrders, title: 'indexView.download', disabled: true, group: ActionGroup.Elaraby, selMode: SelectionMode.Manual, visible: false });
   }
 
   restoreGroup(group: ActionGroup) {
@@ -49,7 +49,7 @@ export class AppActionsService {
 }
 
 export interface AppAction {
-  type: number,
+  type: ActionType,
   title: string,
   disabled: boolean,
   group: ActionGroup,

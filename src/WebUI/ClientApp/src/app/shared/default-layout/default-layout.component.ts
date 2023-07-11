@@ -32,7 +32,7 @@ export class DefaultLayoutComponent implements OnInit {
     // if (this.langs.indexOf(browserlang) > -1) {
     //   this.useLanguage(browserlang);
     // } else {
-    this.useLanguage('en');
+    this.useLanguage('ar');
     // }
 
     this.authorizeService.isInRoles([ApplicationRole.Administrator, ApplicationRole.DashboardManager], false)
@@ -48,7 +48,7 @@ export class DefaultLayoutComponent implements OnInit {
   }
 
   public useLanguage(lang: string): void {
-    this.translateService.setDefaultLang(lang);
+    this.translateService.use(lang);
     if (lang == 'ar')
       document.querySelector('html').setAttribute('dir', 'rtl');
     else

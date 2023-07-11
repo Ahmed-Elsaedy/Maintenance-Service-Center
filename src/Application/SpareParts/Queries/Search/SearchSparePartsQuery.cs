@@ -43,7 +43,7 @@ namespace ElarabyCA.Application.SpareParts.Queries.Search
                 {
                     query = query.Where(x =>
                             x.Title.ToLower().Contains(k) ||
-                            x.SparePartId.ToString().Contains(k) ||
+                            //x.SparePartId.ToString().Contains(k) ||
                             x.Description.ToLower().Contains(k) ||
                             x.Barcode.ToLower().Contains(k));
                 }

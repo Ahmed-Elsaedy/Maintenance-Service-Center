@@ -1,31 +1,31 @@
 <form class="form-horizontal" [formGroup]='formGroup' (ngSubmit)="onSubmit()">
 
     <div class="col form-group" *ngIf='!formGroup.controls.order.value'>
-        <label for="order">Order:</label>
+        <label for="order">{{ 'models.order.oid' | translate }}</label>
         <input type="number" id="order" class="form-control" autocomplete="off" formControlName="order">
     </div>
 
     <div class="col form-group">
-        <label for="date">Report Date:</label>
+        <label for="date">{{ 'models.orderTicket.reportDate' | translate }}</label>
         <input type="text" id="date" class="form-control" autocomplete="off" formControlName="date" [value]="formGroup.get('date').value | date: 'medium'" readonly>
     </div>
 
     <div class="col form-group">
-        <label for="category" class="text-danger">Category:</label>
+        <label for="category" class="text-danger">{{ 'models.orderTicket.category' | translate }}</label>
         <select id="category" class="form-control" data-width="100%">
             <option></option>
         </select>
     </div>
 
     <div class="col form-group">
-        <label for="employee" class="text-danger">Employee:</label>
+        <label for="employee" class="text-danger">{{ 'models.order.displayName' | translate }}</label>
         <select id="employee" class="form-control" data-width="100%">
             <option></option>
         </select>
     </div>
 
     <div class="col form-group has-danger">
-        <label for="report">Report</label>
+        <label for="report">{{ 'models.order.report' | translate }}</label>
         <textarea id="report" rows="3" class="form-control" formControlName="report"></textarea>
     </div>
 

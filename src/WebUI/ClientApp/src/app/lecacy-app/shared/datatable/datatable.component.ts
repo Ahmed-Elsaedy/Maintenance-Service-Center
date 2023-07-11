@@ -1,15 +1,33 @@
-import { Component, OnInit, AfterViewInit, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  EventEmitter,
+  Output,
+  Input,
+  OnDestroy,
+  AfterViewChecked,
+} from "@angular/core";
+import { Subject, Subscription } from "rxjs";
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators,
+} from "@angular/forms";
+import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-datatable',
-  templateUrl: './datatable.component.html',
-  styleUrls: ['./datatable.component.css']
+  selector: "app-datatable",
+  templateUrl: "./datatable.component.html",
+  styleUrls: ["./datatable.component.css"],
 })
 export class DatatableComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Output() private dtSelectionChanged: EventEmitter<[]> = new EventEmitter<[]>();
-  @Output() private dtColumnActionExecute: EventEmitter<any> = new EventEmitter<any>();
+  @Output() private dtSelectionChanged: EventEmitter<[]> = new EventEmitter<
+    []
+  >();
+  @Output() private dtColumnActionExecute: EventEmitter<any> =
+    new EventEmitter<any>();
   @Input() private dtOptions: any;
   @Input() private dtRedraw: Subject<any>;
   @Input() private dtRedrawRow: Subject<any>;
@@ -20,14 +38,16 @@ export class DatatableComponent implements OnInit, AfterViewInit, OnDestroy {
   filterColumnGroup: FormGroup;
   patchEditGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private translateService: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this.filterColumnGroup = this.fb.group({
-      column: new FormControl('', [Validators.required]),
-      operator: new FormControl('', [Validators.required]),
-      value: new FormControl('', [Validators.required])
+      column: new FormControl("", [Validators.required]),
+      operator: new FormControl("", [Validators.required]),
+      value: new FormControl("", [Validators.required]),
     });
   }
 
@@ -41,41 +61,74 @@ export class DatatableComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.dataTableObj = $('#datatable').DataTable(this.dtOptions);
+    // this.dtOptions.language = {
+    //   url : "https://cdn.datatables.net/plug-ins/1.13.5/i18n/ar.json"
+    // }
+
+    // this.translateService.getTranslation("en").subscribe(() => {
+    //   debugger;
+
+    // });
+
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      console.log("lang change");
+      if (this.dataTableObj) {
+        const headerElements = $("#datatable").find("thead th");
+        for (let i = 0; i < headerElements.length; i++) {
+          const column = this.dtOptions.columns[i];
+          const translatedTitle = this.translateService.instant(column.title);
+          $(headerElements[i]).text(translatedTitle);
+        }
+      }
+    });
+
+    // for (const column of this.dtOptions.columns) {
+    //   column.title = this.translateService.instant(column.title);
+    // }
+
+    this.dataTableObj = $("#datatable").DataTable(this.dtOptions);
     var selectionHandler = (e, dt, type, indexes) => {
-      var rowData: [] = this.dataTableObj.rows({ selected: true }).data().toArray();
+      var rowData: [] = this.dataTableObj
+        .rows({ selected: true })
+        .data()
+        .toArray();
       this.selectionChanged(rowData);
-    }
-    this.dataTableObj.on('select', selectionHandler);
-    this.dataTableObj.on('deselect', selectionHandler);
+    };
+    this.dataTableObj.on("select", selectionHandler);
+    this.dataTableObj.on("deselect", selectionHandler);
 
-    if(this.dtRedraw)
-    this.subs.push(this.dtRedraw.subscribe(x => {
-      this.selectionChanged([]);
-      this.dataTableObj.ajax.reload(null, false);
-    }));
+    if (this.dtRedraw)
+      this.subs.push(
+        this.dtRedraw.subscribe((x) => {
+          this.selectionChanged([]);
+          this.dataTableObj.ajax.reload(null, false);
+        })
+      );
     if (this.dtRedrawRow)
-      this.subs.push(this.dtRedrawRow.subscribe(data => {
-        this.dataTableObj.row({ selected: true }).data(data).draw();
-        //this.dataTableObj.rows(x.row).invalidate("dom").draw();
-        // this.dataTableObj.fnUpdate(x.data,x.row,undefined,false);
-      }));
+      this.subs.push(
+        this.dtRedrawRow.subscribe((data) => {
+          this.dataTableObj.row({ selected: true }).data(data).draw();
+          //this.dataTableObj.rows(x.row).invalidate("dom").draw();
+          // this.dataTableObj.fnUpdate(x.data,x.row,undefined,false);
+        })
+      );
     if (this.dtSelectNone)
-      this.subs.push(this.dtSelectNone.subscribe(() => {
-        this.dataTableObj.rows().deselect();
-      }));
+      this.subs.push(
+        this.dtSelectNone.subscribe(() => {
+          this.dataTableObj.rows().deselect();
+        })
+      );
 
-    var d = $('#datatable tbody tr:nth(1)');
-    var row = this.dataTableObj.row(d)
+    var d = $("#datatable tbody tr:nth(1)");
+    var row = this.dataTableObj.row(d);
     var dd = row.data();
 
-    $('#datatable_filter input').unbind();
-    $('#datatable_filter input').on('keyup', (e: any) => {
+    $("#datatable_filter input").unbind();
+    $("#datatable_filter input").on("keyup", (e: any) => {
       if (e.keyCode == 13) {
         this.dataTableObj.search(e.target.value).draw();
       }
     });
-
 
     // var tr = $('<tr></tr>');
     // $('#datatable thead tr:eq(0) th').each(function (i) {
@@ -106,7 +159,6 @@ export class DatatableComponent implements OnInit, AfterViewInit, OnDestroy {
     // });
 
     // $(`#datatable thead tr th li[action="${ColumnAction.Patch}"]`).hide();
-
 
     // $('#datatable thead tr').clone(true).appendTo('#datatable thead');
     // $('#datatable thead tr:eq(1) th').each(function (i) {
@@ -151,7 +203,7 @@ export class DatatableComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach(sub => {
+    this.subs.forEach((sub) => {
       sub.unsubscribe();
     });
   }
@@ -159,5 +211,5 @@ export class DatatableComponent implements OnInit, AfterViewInit, OnDestroy {
 
 export enum ColumnAction {
   Filter = 1,
-  Patch = 2
+  Patch = 2,
 }

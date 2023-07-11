@@ -28,7 +28,12 @@
     "refresh": "تحديث",
     "export": "حفظ الكل",
     "exportIncome": "حفظ الدخل",
-    "exportExpense": "حفظ المصروفات"
+    "exportExpense": "حفظ المصروفات",
+    "addOrderReport" : "إضافة تقرير",
+    "copyOrderToClipboard" : "نسخ البيانات",
+    "copyIDsToClipboard" : "نسخ المسلسل",
+    "filter" : "تصفية",
+    "download" : "تنزيل"
   },
   "models": {
     "store": {
@@ -87,7 +92,8 @@
       "toDate": "الفترة إلي"
     },
     "order": {
-      "OID": "رقم البلاغ",
+      "oid": "رقم البلاغ",
+      "caseNumber" : "رقم الحالة",
       "dateAssigned": "التاريخ",
       "customer": "اسم العميل",
       "region": "المنطقة",
@@ -101,6 +107,10 @@
       "secondaryPhone": "تليفون 2",
       "value": "الحالة",
       "displayName": "الموظف"
+    },
+    "orderTicket" : {
+      "reportDate" : "تاريخ التقرير",
+      "category" : "حالة البلاغ"
     },
     "valuegroup": {
       "values": {

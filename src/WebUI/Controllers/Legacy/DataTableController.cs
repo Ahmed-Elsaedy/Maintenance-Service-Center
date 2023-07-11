@@ -67,6 +67,17 @@ namespace ElarabyCore2.WebApp.Controllers
            where TModel : class, IDbModel
            where TIndexViewModel : class
         {
+            if(request == null)
+            {
+                var res = new DataTableResponse();
+                res.Data = null;
+                res.Draw = 0;
+                res.RecordsTotal = 0;
+                res.RecordsFiltered = 0;
+
+                return new JsonResult(res);
+            }
+
             IQueryable data = _context.Set<TModel>().AsNoTracking();
 
             // Filteration
@@ -116,6 +127,8 @@ namespace ElarabyCore2.WebApp.Controllers
 
         private IQueryable OnConfigureFilters<TModel>(IQueryable data, DataTableRequest request) where TModel : class, IDbModel
         {
+            if (request == null)
+                return data;
             switch (typeof(TModel).Name)
             {
                 case nameof(Order):

@@ -1,7 +1,9 @@
 ﻿using ElarabyCA.Application.Common.Exceptions;
 using ElarabyCA.Application.Common.Interfaces;
 using ElarabyCA.Domain.Entities;
+using ElarabyCA.Domain.Enums;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +15,7 @@ namespace ElarabyCA.Application.FinancialTransactions.Commands
     public class UpdateFinancialTransactionCommand : IRequest
     {
         public int TransactionId { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
         public int Amount { get; set; }
         public string Title { get; set; }
         public string Remarks { get; set; }
@@ -34,6 +36,9 @@ namespace ElarabyCA.Application.FinancialTransactions.Commands
 
         public async Task<Unit> Handle(UpdateFinancialTransactionCommand request, CancellationToken cancellationToken)
         {
+            var transactionTypeValue = await _context.ValueGroup
+                    .FirstOrDefaultAsync(x => x.Value == request.Type && x.Group == nameof(FinancialTransactionType), cancellationToken);
+
             var entity = await _context.FinancialTransaction.FindAsync(request.TransactionId);
 
             if (entity == null)
@@ -43,7 +48,7 @@ namespace ElarabyCA.Application.FinancialTransactions.Commands
             entity.Date = request.Date;
             entity.Amount = request.Amount;
             entity.Remarks = request.Remarks;
-            entity.Type = request.Type;
+            entity.Type = transactionTypeValue.ValueGroupId;
             entity.EmployeeId = request.EmployeeId;
             entity.LastModified = DateTime.Now;
             entity.LastModifiedBy = _currentUserService.UserId;

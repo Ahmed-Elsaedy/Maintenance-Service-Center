@@ -3,7 +3,7 @@
         <h2>{{title}}</h2>
         <div class="pull-right">
             <button *ngFor='let a of actions' type="button" class="btn btn-default" (click)='onExecuteAction(a.type)' [disabled]='a.disabled'>
-                {{a.title}}
+                {{ a.title | translate }}
             </button>
         </div>
         <div class="clearfix"></div>

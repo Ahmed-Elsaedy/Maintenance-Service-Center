@@ -40,8 +40,20 @@ min-height: 37px;
 display:  none;
 } */
 
-div.dataTables_wrapper div.dataTables_length select {
+div.dataTables_wrapper div.dataTables_length select,
+div.dataTables_wrapper div.datatable_filter input {
     margin: 0px 5px!important;
-    width: 75px;
-    display: inline-block;
+}
+
+div.dataTables_wrapper {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+div.dataTables_wrapper div.row:first-child {
+    align-self: flex-start;
+}
+
+.x_title button{
+    margin: 5px;
 }

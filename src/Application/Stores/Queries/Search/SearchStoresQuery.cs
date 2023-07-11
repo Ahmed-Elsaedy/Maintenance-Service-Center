@@ -36,6 +36,18 @@ namespace ElarabyCA.Application.Stores.Queries.Search
             var result = new SearchStoresQueryViewModel();
 
             IQueryable<Store> query = _context.Store;
+
+            if (!string.IsNullOrEmpty(request.Filter))
+            {
+                var keys = request.Filter.ToLower().Split(' ').Select(x => x.Trim());
+                foreach (var k in keys)
+                {
+                    query = query.Where(x =>
+                            x.Description.ToLower().Contains(k) ||
+                            x.Title.ToLower().Contains(k));
+                }
+            }
+
             result.TotalRecords = await query.CountAsync(cancellationToken);
 
             if (!string.IsNullOrEmpty(request.Sort))

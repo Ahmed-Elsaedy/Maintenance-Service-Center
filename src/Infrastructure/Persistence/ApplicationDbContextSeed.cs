@@ -1,6 +1,9 @@
 ﻿using ElarabyCA.Domain.Entities;
+using ElarabyCA.Domain.Enums;
 using ElarabyCA.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,6 +49,51 @@ namespace ElarabyCA.Infrastructure.Persistence
             var isDefaultUserAdmin = await userManager.IsInRoleAsync(defaultUser, "Administrator");
             if (!isDefaultUserAdmin)
                 await userManager.AddToRoleAsync(defaultUser, "Administrator");
+        }
+
+        public static async Task SeedValueGroups(ApplicationDbContext context)
+        {
+            var transactionTypeNames = Enum.GetNames(typeof(TransactionType));
+            var transactionTypeObjs = await context.ValueGroup
+                                                .Where(x => x.Group == nameof(TransactionType))
+                                                .ToListAsync();
+
+            foreach (var typeName in transactionTypeNames)
+            {
+                if (!transactionTypeObjs.Any(x => x.Value == typeName))
+                {
+                    context.ValueGroup.Add(new ValueGroup()
+                    {
+                        Group = nameof(TransactionType),
+                        IsDeleted = false,
+                        Value = typeName,
+                        Created = DateTime.Now
+                    });
+                }
+            }
+
+
+            var finanicalTransactionTypeNames = Enum.GetNames(typeof(FinancialTransactionType));
+            var finanicalTransactionTypeObjs = await context.ValueGroup
+                                                .Where(x => x.Group == nameof(FinancialTransactionType))
+                                                .ToListAsync();
+
+            foreach (var typeName in finanicalTransactionTypeNames)
+            {
+                if (!finanicalTransactionTypeObjs.Any(x => x.Value == typeName))
+                {
+                    context.ValueGroup.Add(new ValueGroup()
+                    {
+                        Group = nameof(FinancialTransactionType),
+                        IsDeleted = false,
+                        Value = typeName,
+                        Created = DateTime.Now
+                    });
+                }
+            }
+
+            await context.SaveChangesAsync();
+
         }
 
         public static async Task SeedSampleDataAsync(ApplicationDbContext context)

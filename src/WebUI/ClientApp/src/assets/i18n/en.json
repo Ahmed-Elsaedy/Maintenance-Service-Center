@@ -28,7 +28,32 @@
     "export": "Export",
     "exportIncome": "Export Income",
     "exportExpense": "Export Expense",
-    "addNewSparepartCode": "Add New"
+    "addNewSparepartCode": "Add New",
+    "addOrderReport" : "Add Report",
+    "copyOrderToClipboard" : "Copy Data",
+    "copyIDsToClipboard" : "Copy IDs",
+    "filter" : "Filter",
+    "download" : "Download"
+  },
+  "ActionType": {
+    "NewOrder " : "New",
+    "EditOrder " : "Edit",
+    "DeleteOrder " : "Delete",
+    "AddReport " : " 12",
+    "PatchEdit " : " 13",
+    "OrderQuery " : " 14",
+    "NewTicket " : " 3",
+    "EditTicket " : " 4",
+    "DeleteTicket " : " 5",
+    "NewEmployee " : " 6",
+    "EditEmployee " : " 7",
+    "DeleteEmployee " : " 8",
+    "NewCategory " : " 9",
+    "EditCategory " : " 10",
+    "DeleteCategory " : " 11",
+    "DownloadWorkOrders " : " 12",
+    "CopyOrderToClipboard " : "15",
+    "CopyIDsToClipboard " : "16"
   },
   "models": {
     "store": {
@@ -88,6 +113,7 @@
     },
     "order": {
       "oid": "Oid",
+      "caseNumber" : "Case Number",
       "dateAssigned": "Date",
       "customer": "Customer",
       "region": "Region",
@@ -101,6 +127,10 @@
       "secondaryPhone": "Phone 2",
       "value": "Status",
       "displayName": "Employee"
+    },
+    "orderTicket" : {
+      "reportDate" : "Report Date",
+      "category" : "Category"
     },
     "valuegroup": {
       "values": {

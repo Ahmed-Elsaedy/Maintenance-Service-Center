@@ -1,32 +1,32 @@
 <form class="form-horizontal" [formGroup]='formGroup' (ngSubmit)="onSubmit()">
 
     <div class="col form-group has-danger">
-        <label for="orderid">Case Number:</label>
+        <label for="orderid">{{'models.order.caseNumber' | translate}}</label>
         <input type="text" id="orderid" class="form-control" autocomplete="off" formControlName="orderid">
     </div>
 
     <div class="col form-group">
-        <label for="dateAssigned">Date Created:</label>
+        <label for="dateAssigned">{{'models.order.dateAssigned' | translate}}</label>
         <input type="text" id="dateAssigned" class="form-control" autocomplete="off" formControlName="dateAssigned" [value]="formGroup.get('dateAssigned').value | date: 'medium'" readonly>
     </div>
 
     <div class="col form-group">
-        <label for="customer">Client Name:</label>
+        <label for="customer">{{'models.order.customer' | translate}}</label>
         <input type="text" id="customer" class="form-control" autocomplete="off" formControlName="customer">
     </div>
 
     <div class="col form-group">
-        <label for="primaryPhone">Primary Phone:</label>
+        <label for="primaryPhone">{{'models.order.primaryPhone' | translate }}</label>
         <input id="primaryPhone" class="form-control" autocomplete="off" formControlName="primaryPhone">
     </div>
 
     <div class="col form-group">
-        <label for="secondaryPhone">Secondary Phone:</label>
+        <label for="secondaryPhone">{{'models.order.secondaryPhone' | translate }}</label>
         <input id="secondaryPhone" class="form-control" autocomplete="off" formControlName="secondaryPhone">
     </div>
 
     <div class="col form-group">
-        <label for="region" class="text-danger">Region:</label>
+        <label for="region" class="text-danger">{{'models.order.region' | translate }}</label>
         <select id="region" class="form-control" data-tags="true" data-width="100%">
             <option></option>
             <option>البحيرة - رشيد</option>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col form-group">
-        <label for="product">Product:</label>
+        <label for="product">{{'models.order.product' | translate }}</label>
         <select id="product" class="form-control" data-tags="true" data-width="100%">
             <option></option>
             <option>ثلاجة</option>
@@ -55,22 +55,22 @@
     </div>
 
     <div class="col form-group">
-        <label for="model">Model:</label>
+        <label for="model">{{'models.order.model' | translate }}</label>
         <input type="text" id="model" class="form-control" formControlName="model" autocomplete="off">
     </div>
 
     <div class="col form-group">
-        <label for="notes">Notes:</label>
+        <label for="notes">{{'models.order.street' | translate }}</label>
         <input type="text" id="street" class="form-control" formControlName="street" autocomplete="off">
     </div>
 
     <div class="col form-group">
-        <label for="address">ِAddress:</label>
+        <label for="address">{{'models.order.address' | translate }}</label>
         <textarea class="resizable_textarea form-control" formControlName="address"></textarea>
     </div>
 
     <div class="col form-group">
-        <label for="complaint">Complaint:</label>
+        <label for="complaint">{{'models.order.complaint' | translate }}</label>
         <textarea class="resizable_textarea form-control" id="complaint" formControlName="complaint"></textarea>
     </div>
 
